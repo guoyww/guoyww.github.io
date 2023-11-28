@@ -77,7 +77,7 @@
 <div class="content">
   <p style="text-align:center; font-size: 2em; font-weight: bold" class="sansserif">Overview Video</p>
   <div style="text-align:center; margin-bottom:1em;">
-    <video width="90%" controls>
+    <video class="clickplay" width="90%" controls>
       <source src="assets/video/overview-30.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -87,6 +87,7 @@
 
 <div class="content">
   <p style="text-align:center; font-size: 2em; font-weight: bold" class="sansserif">Applications</p>
+  <p style="text-align:center; font-size: 1.2em; color: orangered" class="serif"><i><b>Click to Play the Videos</b></i></p>
 
   <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Image Animation</b> = RGB Image Encoder + starting frame</p>
   <div class="row">
@@ -97,7 +98,7 @@
       </div>
 
       <div class="col-gallery" style="margin-right: 1%;">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/animation-1.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -109,7 +110,7 @@
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/animation-2.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -127,7 +128,7 @@
       </div>
 
       <div class="col-gallery" style="margin-right: 1%;">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/interpolation-1.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -140,7 +141,7 @@
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/interpolation-2.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -152,28 +153,28 @@
   <div class="row">
     <div class="row">
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/superres-input-1.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Low framerate input</p>
       </div>
 
       <div class="col-gallery" style="margin-right: 1%;">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/superres-1.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/superres-input-2.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Low framerate input</p>
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/superres-2.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -193,11 +194,11 @@
           <img src="assets/figs/results/rgb/prediction-1-3.png" style="width: 100%; border: 1px solid #000000;">
           <img src="assets/figs/results/rgb/prediction-1-4.png" style="width: 100%; border: 1px solid #000000;">
         </div>
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <p style="text-align: center; margin-top: 0;">Input starting frames</p>
       </div>
 
       <div class="col-gallery" style="margin-right: 1%;">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/prediction-1.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -212,11 +213,11 @@
           <img src="assets/figs/results/rgb/prediction-2-3.png" style="width: 100%; border: 1px solid #000000;">
           <img src="assets/figs/results/rgb/prediction-2-4.png" style="width: 100%; border: 1px solid #000000;">
         </div>
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <p style="text-align: center; margin-top: 0;">Input starting frames</p>
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/rgb/prediction-2.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -230,11 +231,11 @@
     <div class="row">
       <div class="col-gallery">
         <img src="assets/figs/results/depth/depth-1.png" style="width: 100%; border: 1px solid #000000;">
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <p style="text-align: center; margin-top: 0;">Input depth</p>
       </div>
 
       <div class="col-gallery" style="margin-right: 1%;">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/depth/depth-1.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -249,11 +250,13 @@
           <div style="width: 100%; height: 84px;"></div>
           <img src="assets/figs/results/depth/depth-2-3.png" style="width: 100%; border: 1px solid #000000;">
         </div>
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <div style="width: 100%; float: left;">
+          <p style="text-align: center; margin-top: 0; width: 100%;">Low framerate input</p>
+        </div>
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/depth/depth-2.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -267,11 +270,11 @@
     <div class="row">
       <div class="col-gallery">
         <img src="assets/figs/results/sketch/sketch-1.png" style="width: 100%; border: 1px solid #000000;">
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <p style="text-align: center; margin-top: 0; width: 100%;">Input sketch</p>
       </div>
 
       <div class="col-gallery" style="margin-right: 1%;">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/sketch/sketch-1.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -279,11 +282,11 @@
 
       <div class="col-gallery">
         <img src="assets/figs/results/sketch/sketch-2.png" style="width: 100%; border: 1px solid #000000;">
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <p style="text-align: center; margin-top: 0; width: 100%;">Input sketch</p>
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/sketch/sketch-2.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -303,11 +306,13 @@
           <div style="width: 100%; height: 84px;"></div>
           <img src="assets/figs/results/sketch/sketch-3-3.png" style="width: 100%; border: 1px solid #000000;">
         </div>
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <div style="width: 100%; float: left;">
+          <p style="text-align: center; margin-top: 0; width: 100%;">Input sketches</p>
+        </div>
       </div>
 
       <div class="col-gallery" style="margin-right: 1%;">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/sketch/sketch-3.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -322,11 +327,13 @@
           <div style="width: 100%; height: 84px;"></div>
           <img src="assets/figs/results/sketch/sketch-4-3.png" style="width: 100%; border: 1px solid #000000;">
         </div>
-        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+        <div style="width: 100%; float: left;">
+          <p style="text-align: center; margin-top: 0; width: 100%;">Input sketches</p>
+        </div>
       </div>
 
       <div class="col-gallery">
-        <video width="100%" autoplay loop controls>
+        <video class="clickplay" width="100%" loop>
           <source src="assets/video/results/sketch/sketch-4.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; margin-top: 0;">Output Video</p>
@@ -361,5 +368,18 @@
 </div>
 
 </body>
+
+<script>
+  var videos = document.getElementsByClassName("clickplay");
+  for (var i = 0; i < videos.length; i++) {
+    videos[i].addEventListener("click", function() {
+      this.play();
+    });
+    videos[i].addEventListener("ended", function() {
+      this.pause();
+      this.currentTime = 0;
+    });
+  }
+</script>
 
 </html>
