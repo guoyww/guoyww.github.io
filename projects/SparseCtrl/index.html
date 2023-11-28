@@ -3,8 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SparseCtrl</title>
 <link href="./config_files/style.css" rel="stylesheet">
-<!-- <script type="text/javascript" src="./config_files/jquery.mlens-1.0.min.js"></script> 
-<script type="text/javascript" src="./config_files/jquery.js"></script> -->
 
 
 <style>
@@ -23,7 +21,7 @@
   <h1><strong>SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models</strong></h1>
   <p id="authors" class="serif">
     <span style="font-size: 0.8em">
-      <a href="mailto:guoyuwei@pjlab.org.cn">Yuwei Guo<sup>1,2</sup></a>
+      <a href="mailto:guoyuwei@pjlab.org.cn">Yuwei Guo<sup>1</sup></a>
       <a href="https://ceyuan.me/">Ceyuan Yang<sup>2&dagger;</sup></a>
       <a href="https://anyirao.com/">Anyi Rao<sup>3</sup></a>
       <a href="https://graphics.stanford.edu/~maneesh/">Maneesh Agrawala<sup>3</sup></a>
@@ -88,64 +86,255 @@
 
 
 <div class="content">
-  <p style="text-align:left; font-size: 2em; font-weight: bold" class="serif">Supplement</p>
-  <p style="font-size: 1.2em" class="serif">
-    Here we show results using the same prompt with the same model, demonstrating that our method dose not break the diversity of the original model.
-    <span style="color: red; font-weight: bold">Click to play the following animations.</span>
-  </p>
+  <p style="text-align:center; font-size: 2em; font-weight: bold" class="sansserif">Applications</p>
 
-  <!-- <div class="row">
-    <div class="row">
-      <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_01/01.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_01/02.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_01/03.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_01/04.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-  <p class="serif" style="font-size: 1.2em; text-align: left; margin: 5px; margin-bottom: 20px">Model: <a href="https://civitai.com/models/30240/toonyou">ToonYou</a></p>
-
+  <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Image Animation</b> = RGB Image Encoder + starting frame</p>
   <div class="row">
     <div class="row">
       <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_02/01.mp4" type="video/mp4">
-        </video>
+        <img src="assets/figs/results/rgb/animation-image-1.png" style="width: 100%;">
+        <p style="text-align: center; margin-top: 0;">Image input</p>
       </div>
-      <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_02/02.mp4" type="video/mp4">
+
+      <div class="col-gallery" style="margin-right: 1%;">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/animation-1.mp4" type="video/mp4">
         </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
       </div>
+
       <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_02/03.mp4" type="video/mp4">
-        </video>
+        <img src="assets/figs/results/rgb/animation-image-2.png" style="width: 100%;">
+        <p style="text-align: center; margin-top: 0;">Image input</p>
       </div>
+
       <div class="col-gallery">
-        <video class="clickplay" width="100%">
-          <source src="animations/same_prompt_02/04.mp4" type="video/mp4">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/animation-2.mp4" type="video/mp4">
         </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
       </div>
     </div>
   </div>
-  <p class="serif" style="font-size: 1.2em; text-align: left; margin: 5px; margin-bottom: 20px">Model: <a href="https://civitai.com/models/22922/lyriel">Lyriel</a>
-  </p> -->
+
+  <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Keyframe Interpolation</b> = RGB Image Encoder + first & last frames</p>
+  <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <img src="assets/figs/results/rgb/interpolation-image-1-1.png" style="width: 50%;">
+        <img src="assets/figs/results/rgb/interpolation-image-1-2.png" style="width: 50%; margin-left: 50%">
+        <p style="text-align: center; margin-top: 0;">Image inputs</p>
+      </div>
+
+      <div class="col-gallery" style="margin-right: 1%;">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/interpolation-1.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+
+      <div class="col-gallery">
+        <img src="assets/figs/results/rgb/interpolation-image-2-1.png" style="width: 50%;">
+        <img src="assets/figs/results/rgb/interpolation-image-2-2.png" style="width: 50%; margin-left: 50%">
+        <p style="text-align: center; margin-top: 0;">Image inputs</p>
+      </div>
+
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/interpolation-2.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Video Interpolation</b> = RGB Image Encoder + low framerate input</p>
+  <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/superres-input-1.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery" style="margin-right: 1%;">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/superres-1.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/superres-input-2.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/superres-2.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Video Prediction</b> = RGB Image Encoder + initial N frames</p>
+  <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <div style="width: 50%; float: left;">
+          <img src="assets/figs/results/rgb/prediction-1-1.png" style="width: 100%; border: 1px solid #000000;">
+          <img src="assets/figs/results/rgb/prediction-1-2.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <div style="width: 50%; float: left;">
+          <img src="assets/figs/results/rgb/prediction-1-3.png" style="width: 100%; border: 1px solid #000000;">
+          <img src="assets/figs/results/rgb/prediction-1-4.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery" style="margin-right: 1%;">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/prediction-1.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+
+      <div class="col-gallery">
+        <div style="width: 50%; float: left;">
+          <img src="assets/figs/results/rgb/prediction-2-1.png" style="width: 100%; border: 1px solid #000000;">
+          <img src="assets/figs/results/rgb/prediction-2-2.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <div style="width: 50%; float: left;">
+          <img src="assets/figs/results/rgb/prediction-2-3.png" style="width: 100%; border: 1px solid #000000;">
+          <img src="assets/figs/results/rgb/prediction-2-4.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/rgb/prediction-2.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+    </div>
+  </div>
+
+
+  <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Depth-guided Generation</b> = Depth Encoder + arbitrary depth maps</p>
+  <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <img src="assets/figs/results/depth/depth-1.png" style="width: 100%; border: 1px solid #000000;">
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery" style="margin-right: 1%;">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/depth/depth-1.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+
+      <div class="col-gallery">
+        <div style="width: 50%; float: left;">
+          <img src="assets/figs/results/depth/depth-2-1.png" style="width: 100%; border: 1px solid #000000;">
+          <img src="assets/figs/results/depth/depth-2-2.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <div style="width: 50%; float: left;">
+          <div style="width: 100%; height: 84px;"></div>
+          <img src="assets/figs/results/depth/depth-2-3.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/depth/depth-2.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+    </div>
+  </div>
+
+
+  <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Sketch-to-Video</b> = Sketch Encoder + single sketch</p>
+  <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <img src="assets/figs/results/sketch/sketch-1.png" style="width: 100%; border: 1px solid #000000;">
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery" style="margin-right: 1%;">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/sketch/sketch-1.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+
+      <div class="col-gallery">
+        <img src="assets/figs/results/sketch/sketch-2.png" style="width: 100%; border: 1px solid #000000;">
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/sketch/sketch-2.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size: 1.25em" class="serif"><b style="font-size: 1.3em;">Storyboarding</b> = Sketch Encoder + arbitrary sketches</p>
+  <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <div style="width: 50%; float: left;">
+          <img src="assets/figs/results/sketch/sketch-3-1.png" style="width: 100%; border: 1px solid #000000;">
+          <img src="assets/figs/results/sketch/sketch-3-2.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <div style="width: 50%; float: left;">
+          <div style="width: 100%; height: 84px;"></div>
+          <img src="assets/figs/results/sketch/sketch-3-3.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery" style="margin-right: 1%;">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/sketch/sketch-3.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+
+      <div class="col-gallery">
+        <div style="width: 50%; float: left;">
+          <img src="assets/figs/results/sketch/sketch-4-1.png" style="width: 100%; border: 1px solid #000000;">
+          <img src="assets/figs/results/sketch/sketch-4-2.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <div style="width: 50%; float: left;">
+          <div style="width: 100%; height: 84px;"></div>
+          <img src="assets/figs/results/sketch/sketch-4-3.png" style="width: 100%; border: 1px solid #000000;">
+        </div>
+        <p style="text-align: center; margin-top: 0;">Low framerate input</p>
+      </div>
+
+      <div class="col-gallery">
+        <video width="100%" autoplay loop>
+          <source src="assets/video/results/sketch/sketch-4.mp4" type="video/mp4">
+        </video>
+        <p style="text-align: center; margin-top: 0;">Output Video</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="serif"><b style="font-size: 1.3em;">&hellip;</b></p>
 
 </div>
 
