@@ -47,7 +47,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: 1px #efefef solid;
-    padding: 2em 0 2em 0;
+    padding: 1em 0 2em 0;
     
 
     .paper-box-image{
@@ -56,7 +56,9 @@
         width: 100%;
         order: 2;
         img {
-            max-width: 400px;
+            // max-width: 400px;
+            max-width: 300px;
+            max-width: 100%;
             box-shadow: 3px 3px 6px #888;
             object-fit: cover;
         }
@@ -71,14 +73,14 @@
         .paper-box-image{
             justify-content: left;
             min-width: 200px;
-            max-width: 40%;
+            max-width: 30%;
             order: 1;
         }
         
         .paper-box-text{
             justify-content: left;
             padding-left: 2em;
-            max-width: 60%;
+            max-width: 70%;
             order: 2;
         }
 

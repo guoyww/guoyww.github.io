@@ -1,0 +1,176 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SparseCtrl</title>
+<link href="./config_files/style.css" rel="stylesheet">
+<!-- <script type="text/javascript" src="./config_files/jquery.mlens-1.0.min.js"></script> 
+<script type="text/javascript" src="./config_files/jquery.js"></script> -->
+
+
+<style>
+  p.serif{
+    font-family:"Times New Roman", Times, serif;
+  }
+  p.sansserif{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+</style>
+  
+</head>
+
+<body>
+<div class="content">
+  <h1><strong>SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models</strong></h1>
+  <p id="authors" class="serif">
+    <span style="font-size: 0.8em">
+      <a href="mailto:guoyuwei@pjlab.org.cn">Yuwei Guo<sup>1,2</sup></a>
+      <a href="https://ceyuan.me/">Ceyuan Yang<sup>2&dagger;</sup></a>
+      <a href="https://anyirao.com/">Anyi Rao<sup>3</sup></a>
+      <a href="https://graphics.stanford.edu/~maneesh/">Maneesh Agrawala<sup>3</sup></a>
+      <a href="http://dahua.site/">Dahua Lin<sup>1,2</sup></a>
+      <a href="https://daibo.info/">Bo Dai<sup>2</sup></a>
+    </span>
+    <br>
+    <a style="font-size: 0.7em"><sup>&dagger;</sup>Corresponding Author.</a>
+    <br>
+    <span style="font-size: 0.8em; margin-top: 0.5em">
+      <a><sup>1</sup>The Chinese University of Hong Kong</a>
+      <a><sup>2</sup>Shanghai Artificial Intellgence Laboratory</a>
+      <a><sup>3</sup>Stanford University</a>
+    </span>
+  </p>
+
+  <font size="+1">
+    <p style="text-align: center;" class="sansserif">
+      <a href="" target="" style="font-weight: bold;">[arXiv Report]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="" target="" style="font-weight: bold;">[Code (comming soon)]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#bibtex" style="font-weight: bold;">[BibTeX]</a>
+    </p><br>
+  </font>
+
+  <div style="text-align:center;">
+    <img src="assets/figs/teaser.jpeg" width="75%">
+  </div>
+
+  <!-- <p style="font-size: 1.2em; margin-left:5em; margin-right:5em;" class="serif">
+    We present SparseCtrl, an add-on encoder network upon pre-trained text-to-video (T2V) diffusion models to accept additional
+    temporally sparse conditions for specific keyframe(s), <i>e.g.</i>, sketch/depth/RGB image. Through integration with various modality encoders,
+    SparseCtrl enables the pre-trained T2V for various applications including storyboarding, sketch-to-video, image animation, long video
+    generation, etc. When combined with AnimateDiff and enhanced personalized image backbones, SparseCtrl also achieves
+    controllable, high-quality generation results, as shown in the 2/3/4-th rows.
+  </p> -->
+</div>
+
+
+<div class="content">
+  <p style="text-align:center; font-size: 2em; font-weight: bold" class="sansserif">Abstract</p>
+  <p style="font-size: 1.2em; margin-left:5em; margin-right:5em;" class="serif">
+    The development of text-to-video (T2V), <i>i.e.</i>, generating videos with a given text prompt, has been significantly advanced in recent years.
+    However, relying solely on text prompts often results in ambiguous frame composition due to spatial uncertainty.
+    The research community thus leverages the <i>dense</i> structure signals, <i>e.g.</i>, per-frame depth/edge sequences to enhance controllability, whose collection accordingly increases the burden of inference.
+    In this work, we present SparseCtrl to enable flexible structure control with temporally <i>sparse</i> signals, requiring only one or few inputs.
+    It incorporates an additional condition encoder to process these sparse signals while leaving the pre-trained T2V model <i>untouched</i>.
+    The proposed approach is compatible with various modalities, including sketches, depth, and RGB images, providing more practical control for video generation and promoting applications such as storyboarding, depth rendering, keyframe animation, and interpolation.
+    Extensive experiments demonstrate the generalization of SparseCtrl on both original and personalized T2V generators.
+  </p>
+</div>
+
+
+<div class="content">
+  <p style="text-align:center; font-size: 2em; font-weight: bold" class="sansserif">Overview Video</p>
+  <div style="text-align:center; margin-bottom:1em;">
+    <video width="90%" controls>
+      <source src="assets/video/overview-30.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+
+<div class="content">
+  <p style="text-align:left; font-size: 2em; font-weight: bold" class="serif">Supplement</p>
+  <p style="font-size: 1.2em" class="serif">
+    Here we show results using the same prompt with the same model, demonstrating that our method dose not break the diversity of the original model.
+    <span style="color: red; font-weight: bold">Click to play the following animations.</span>
+  </p>
+
+  <!-- <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_01/01.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_01/02.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_01/03.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_01/04.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+  <p class="serif" style="font-size: 1.2em; text-align: left; margin: 5px; margin-bottom: 20px">Model: <a href="https://civitai.com/models/30240/toonyou">ToonYou</a></p>
+
+  <div class="row">
+    <div class="row">
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_02/01.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_02/02.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_02/03.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-gallery">
+        <video class="clickplay" width="100%">
+          <source src="animations/same_prompt_02/04.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+  <p class="serif" style="font-size: 1.2em; text-align: left; margin: 5px; margin-bottom: 20px">Model: <a href="https://civitai.com/models/22922/lyriel">Lyriel</a>
+  </p> -->
+
+</div>
+
+
+</div>
+
+<div class="content" id="bibtex">
+  <p style="text-align:left; font-size: 2em; font-weight: bold" class="serif">BibTeX</p>
+  <!-- <span class="serif" style="color:red;"> (Coming Soon)</span> -->
+  <!-- <code> @misc{guo2023animatediff,<br>
+  &nbsp;&nbsp;title={AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning},<br>
+  &nbsp;&nbsp;author={Yuwei Guo, Ceyuan Yang, Anyi Rao, Yaohui Wang, Yu Qiao, Dahua Lin, Bo Dai},<br>
+  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2307.04725},<br>
+  &nbsp;&nbsp;year={2023},<br>
+  &nbsp;&nbsp;archivePrefix={arXiv},<br>
+  &nbsp;&nbsp;primaryClass={cs.CV}<br>
+  } </code>  -->
+</div>
+
+<div class="content">
+  <p class="serif">
+    Project page template is borrowed from <a href="https://dreambooth.github.io/">DreamBooth</a>.
+  </p>
+</div>
+
+</body>
+
+</html>
