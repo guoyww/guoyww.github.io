@@ -20,14 +20,15 @@ redirect_from:
 Hi, I am a first-year Ph.D. student at [MMLAB](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), supervised by Prof. [Dahua Lin](http://dahua.site/).
 Prior to that, I received my Bachelor’s degree in the EE Department at [NJU](https://www.nju.edu.cn/en/).
 My research interests focus on generative models and visual content creation.
-Feel free to contact me if you are interested in my work :)
+Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in my work :)
 
 
 # 🔥 News
 - *2023.07*: &nbsp;🎉🎉 AnimateDiff is [online](https://github.com/guoyww/AnimateDiff).
+- *2023-06*: &nbsp;We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
 
 # 📖 Educations
-- **2023.08 - Now**, Ph.D. in Information Engineering, The Chinese University of Hong Kong
+- **2023.08 - Present**, Ph.D. in Information Engineering, The Chinese University of Hong Kong
 - **2019.09 - 2023.06**, B.Sc. in Electronic Engineering, Nanjing University
 
 # 📝 Publications 
