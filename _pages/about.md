@@ -24,12 +24,12 @@ Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in
 
 
 # News
-- *2023.07*: &nbsp;🎉🎉 AnimateDiff is [online](https://github.com/guoyww/AnimateDiff).
-- *2023-06*: &nbsp;We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
+- **2023.07**&nbsp; 🎉🎉 AnimateDiff is [online](https://github.com/guoyww/AnimateDiff).
+- **2023-06**&nbsp; We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
 
 # Educations
-- **2023.08 - Present**, Ph.D. in Information Engineering, The Chinese University of Hong Kong
-- **2019.09 - 2023.06**, B.Sc. in Electronic Engineering, Nanjing University
+- **2023.08 - Present**&nbsp; Ph.D. in Information Engineering, The Chinese University of Hong Kong
+- **2019.09 - 2023.06**&nbsp; B.Sc. in Electronic Engineering, Nanjing University
 
 # Publications 
 †: corresponding author; *:equal contribution
@@ -85,10 +85,10 @@ Anyi Rao<sup>\*</sup>, Xuekun Jiang<sup>\*</sup>, **Yuwei Guo**, Linning Xu, Lei
 - *2020.10*&nbsp; China National Scholarship
 
 # Talks
-- *2023.11*, Invited talk at Kunlun 2050 Research.
+- *2023.11*&nbsp; Invited talk at Kunlun 2050 Research.
 
 # Teaching
-- IERG4998: Final Year Project, Fall 2023
+- IERG4998&nbsp; Final Year Project, Fall 2023
 
 <!-- # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
