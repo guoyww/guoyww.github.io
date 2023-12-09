@@ -17,21 +17,21 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I am a first-year Ph.D. student at [MMLAB](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), supervised by Prof. [Dahua Lin](http://dahua.site/).
+Hi, I am a first-year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), supervised by Prof. [Dahua Lin](http://dahua.site/).
 Prior to that, I received my Bachelor’s degree in the EE Department at [NJU](https://www.nju.edu.cn/en/).
 My research interests focus on generative models and visual content creation.
 Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in my work :)
 
 
-# 🔥 News
+# News
 - *2023.07*: &nbsp;🎉🎉 AnimateDiff is [online](https://github.com/guoyww/AnimateDiff).
 - *2023-06*: &nbsp;We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
 
-# 📖 Educations
+# Educations
 - **2023.08 - Present**, Ph.D. in Information Engineering, The Chinese University of Hong Kong
 - **2019.09 - 2023.06**, B.Sc. in Electronic Engineering, Nanjing University
 
-# 📝 Publications 
+# Publications 
 †: corresponding author; *:equal contribution
 
 <!-- SparseCtrl -->
@@ -59,7 +59,7 @@ Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in
 
 [**[Paper]**](https://arxiv.org/abs/2307.04725)&nbsp;
 [**[Project]**](https://animatediff.github.io/)&nbsp;
-[**[Code (5.9k stars)]**](https://github.com/guoyww/AnimateDiff)
+[**[Code (6.1k stars)]**](https://github.com/guoyww/AnimateDiff)
 <!-- - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 </div>
 </div>
@@ -79,14 +79,16 @@ Anyi Rao<sup>\*</sup>, Xuekun Jiang<sup>\*</sup>, **Yuwei Guo**, Linning Xu, Lei
 </div>
 
 
-# 🎖 Selected Awards
+# Selected Awards
 - *2023.04*&nbsp; Hong Kong PhD Fellowship
 - *2023.04*&nbsp; CUHK Vice-Chancellor's Scholarship
 - *2020.10*&nbsp; China National Scholarship
 
-<!-- # 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
+# Talks
+- *2023.11*, Invited talk at Kunlun 2050 Research.
+
+# Teaching
+- IERG4998: Final Year Project, Fall 2023
 
 <!-- # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
