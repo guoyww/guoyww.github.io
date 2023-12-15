@@ -38,13 +38,13 @@ Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv preprint</div><img src='images/papers/sparsectrl.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models]()
+[SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models](https://arxiv.org/abs/2311.16933)
 
 **Yuwei Guo**, Ceyuan Yang<sup>†</sup>, Anyi Rao, Maneesh Agrawala, Dahua Lin, Bo Dai 
 
-[**[Paper]**](https://arxiv.org/abs/2311.)&nbsp;
+[**[Paper]**](https://arxiv.org/abs/2311.16933)&nbsp;
 [**[Project]**](projects/SparseCtrl/)&nbsp;
-[**[Code (coming soon)]**]()
+[**[Code]**](https://github.com/guoyww/AnimateDiff#202312-animatediff-v3-and-sparsectrl)
 </div>
 </div>
 
