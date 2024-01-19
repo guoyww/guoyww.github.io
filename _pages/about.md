@@ -31,7 +31,7 @@ Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in
 - **2023.08 - Present**&nbsp; Ph.D. in Information Engineering, The Chinese University of Hong Kong
 - **2019.09 - 2023.06**&nbsp; B.Sc. in Electronic Engineering, Nanjing University
 
-# Publications 
+# Research Projects
 †: corresponding author; *:equal contribution
 
 <!-- SparseCtrl -->
@@ -50,7 +50,7 @@ Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in
 
 
 <!-- AnimateDiff -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv preprint</div><img src='images/papers/animatediff.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR'24 (spotlight)</div><img src='images/papers/animatediff.gif' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [AnimateDiff: Animate Your Personalized Text-to-Image Models without Specific Tuning](https://arxiv.org/abs/2307.04725)
