@@ -38,45 +38,67 @@ Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv preprint</div><img src='images/papers/sparsectrl.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models](https://arxiv.org/abs/2311.16933)
+**SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models**
 
-**Yuwei Guo**, Ceyuan Yang<sup>†</sup>, Anyi Rao, Maneesh Agrawala, Dahua Lin, Bo Dai 
+**Yuwei Guo**,
+[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
+[Anyi Rao](https://anyirao.com),
+[Maneesh Agrawala](http://graphics.stanford.edu/~maneesh/),
+[Dahua Lin](http://dahua.site/),
+[Bo Dai](https://daibo.info) 
 
 [**[Paper]**](https://arxiv.org/abs/2311.16933)&nbsp;
 [**[Project]**](projects/SparseCtrl/)&nbsp;
 [**[Code]**](https://github.com/guoyww/AnimateDiff#202312-animatediff-v3-and-sparsectrl)
 </div>
 </div>
+<!-- SparseCtrl -->
 
 
 <!-- AnimateDiff -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR'24 (spotlight)</div><img src='images/papers/animatediff.gif' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[AnimateDiff: Animate Your Personalized Text-to-Image Models without Specific Tuning](https://arxiv.org/abs/2307.04725)
+**AnimateDiff: Animate Your Personalized Text-to-Image Models without Specific Tuning**
 
-**Yuwei Guo**, Ceyuan Yang<sup>†</sup>, Anyi Rao, Yaohui Wang, Yu Qiao, Dahua Lin, Bo Dai 
+**Yuwei Guo**,
+[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
+[Anyi Rao](https://anyirao.com),
+[Zhengyang Liang](https://maxleung99.github.io),
+[Yaohui Wang](https://wyhsirius.github.io),
+[Yu Qiao](https://scholar.google.com/citations?user=gFtI-8QAAAAJ&hl=en),
+[Maneesh Agrawala](http://graphics.stanford.edu/~maneesh/),
+[Dahua Lin](http://dahua.site/),
+[Bo Dai](https://daibo.info) 
 
 [**[Paper]**](https://arxiv.org/abs/2307.04725)&nbsp;
 [**[Project]**](https://animatediff.github.io/)&nbsp;
-[**[Code (6.1k stars)]**](https://github.com/guoyww/AnimateDiff)
-<!-- - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+[**[Code (7.5k stars)]**](https://github.com/guoyww/AnimateDiff)
 </div>
 </div>
-
-
 <!-- AnimateDiff -->
+
+
+<!-- Dynamic Storyboard -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">SIGGRAPH Poster</div><img src='images/papers/sig23vds.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Dynamic Storyboard Generation in an Engine-based Virtual Environment for Video Production](https://arxiv.org/abs/2301.12688)
+**Dynamic Storyboard Generation in an Engine-based Virtual Environment for Video Production**
 
-Anyi Rao<sup>\*</sup>, Xuekun Jiang<sup>\*</sup>, **Yuwei Guo**, Linning Xu, Lei Yang, Libiao Jin, Dahua Lin, Bo Dai
+[Anyi Rao](https://anyirao.com)<sup>\*</sup>,
+[Xuekun Jiang]()<sup>\*</sup>,
+**Yuwei Guo**,
+[Linning Xu](https://eveneveno.github.io/lnxu/),
+[Lei Yang](https://yanglei.me),
+[Libiao Jin](),
+[Dahua Lin](http://dahua.site/),
+[Bo Dai](https://daibo.info) 
 
 [**[Paper]**](https://arxiv.org/abs/2301.12688)&nbsp;
 [**[Project]**](https://virtualfilmstudio.github.io/)
 </div>
 </div>
+<!-- Dynamic Storyboard -->
 
 
 # Selected Awards
@@ -87,8 +109,9 @@ Anyi Rao<sup>\*</sup>, Xuekun Jiang<sup>\*</sup>, **Yuwei Guo**, Linning Xu, Lei
 # Talks
 - *2023.11*&nbsp; Invited talk at Kunlun 2050 Research.
 
+# Services
+- Reviewer: SIGGRAPH'24, ACM MM'24
+
 # Teaching
 - IERG4998&nbsp; Final Year Project, Fall 2023
-
-<!-- # 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
+- IERG4998&nbsp; Final Year Project, Spring 2024
