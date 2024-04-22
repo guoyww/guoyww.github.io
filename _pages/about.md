@@ -19,8 +19,8 @@ redirect_from:
 
 Hi, I am a first-year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), supervised by Prof. [Dahua Lin](http://dahua.site/).
 Prior to that, I received my Bachelor’s degree in the EE Department at [NJU](https://www.nju.edu.cn/en/).
-My research interests focus on generative models and visual content creation.
-Feel free to [contact me](mailto:guoyuwei@pjlab.org.cn) if you are interested in my work :)
+My research interests focus on deep generative models for visual content creation.
+Feel free to [contact me](mailto:guoyw.nju@gmail.com) if you are interested in my work. :)
 
 
 # News
