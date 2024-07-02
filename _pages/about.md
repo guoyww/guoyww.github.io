@@ -31,11 +31,11 @@ Feel free to [contact me](mailto:guoyw.nju@gmail.com) if you are interested in m
 - **2023.08 - Present**&nbsp; Ph.D. in Information Engineering, The Chinese University of Hong Kong
 - **2019.09 - 2023.06**&nbsp; B.Sc. in Electronic Engineering, Nanjing University
 
-# Research Projects
-†: corresponding author; *:equal contribution
+# Selected Researches
+*:equal contribution; †: corresponding author
 
 <!-- SparseCtrl -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv preprint</div><img src='images/papers/sparsectrl.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2024</div><img src='images/papers/sparsectrl.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models**
@@ -56,7 +56,7 @@ Feel free to [contact me](mailto:guoyw.nju@gmail.com) if you are interested in m
 
 
 <!-- AnimateDiff -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR'24 (spotlight)</div><img src='images/papers/animatediff.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 (spotlight)</div><img src='images/papers/animatediff.gif' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **AnimateDiff: Animate Your Personalized Text-to-Image Models without Specific Tuning**
@@ -73,7 +73,7 @@ Feel free to [contact me](mailto:guoyw.nju@gmail.com) if you are interested in m
 
 [**[Paper]**](https://arxiv.org/abs/2307.04725)&nbsp;
 [**[Project]**](https://animatediff.github.io/)&nbsp;
-[**[Code (7.5k stars)]**](https://github.com/guoyww/AnimateDiff)
+[**[Code (9.6k stars)]**](https://github.com/guoyww/AnimateDiff)
 </div>
 </div>
 <!-- AnimateDiff -->
@@ -110,7 +110,7 @@ Feel free to [contact me](mailto:guoyw.nju@gmail.com) if you are interested in m
 - *2023.11*&nbsp; Invited talk at Kunlun 2050 Research.
 
 # Services
-- Reviewer: SIGGRAPH'24, ACM MM'24
+- Reviewer: SIGGRAPH 2024, ACM MM 2024, SIGGRAPH Asia 2024, NeurIPS 2024
 
 # Teaching
 - IERG4998&nbsp; Final Year Project, Fall 2023
