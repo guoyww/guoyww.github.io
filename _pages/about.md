@@ -17,11 +17,11 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I am a second year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), supervised by Prof. [Dahua Lin](http://dahua.site/).
+Hi, I am a second year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), advised by Prof. [Dahua Lin](http://dahua.site/).
 Prior to that, I received my Bachelor’s degree in the EE Department at [Nanjing University](https://www.nju.edu.cn/en/).
 My research interests focus on deep generative models for visual content creation.  
 
-<font face="georgia" style="color:#CC0000; font-style: italic">I am always open to research collaboration and internship opportunities, feel free to <a href="mailto:guoyw.nju@gmail.com">drop me an email</a> if you are interested. :)</font>
+<font face="" style="color:#CC0000">I am open to research collaboration and internship opportunities. Feel free to <a href="mailto:guoyw.nju@gmail.com">drop me an email</a> if you are interested in working with me. :)</font>
 
 
 # News
@@ -103,17 +103,23 @@ My research interests focus on deep generative models for visual content creatio
 </div>
 <!-- Dynamic Storyboard -->
 
+# Experiences
+- **Research Intern**, Pika Labs, Palo Alto, USA (2024.06 - 2024.08)  
+  with [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Omer Bar-Tal](https://omerbt.github.io)
+
+- **Research Intern**, Shanghai AI Laboratory, Shanghai, China (2022.10 - 2023.08)  
+  with [Ceyuan Yang](https://ceyuan.me), [Bo Dai](https://daibo.info), [Anyi Rao](https://anyirao.com)
 
 # Selected Awards
-- *2023.04*&nbsp; Hong Kong PhD Fellowship
-- *2023.04*&nbsp; CUHK Vice-Chancellor's Scholarship
-- *2020.10*&nbsp; China National Scholarship
+- **2023.04**&nbsp; Hong Kong PhD Fellowship
+- **2023.04**&nbsp; CUHK Vice-Chancellor's Scholarship
+- **2020.10**&nbsp; China National Scholarship
 
 # Talks
-- *2023.11*&nbsp; Invited talk at Kunlun 2050 Research.
+- **2023.11**&nbsp; Invited talk at Kunlun 2050 Research
 
-# Services
-- Reviewer: SIGGRAPH 2024, ACM MM 2024, SIGGRAPH Asia 2024, NeurIPS 2024
+# Reviewer
+- 2024: SIGGRAPH, ACM MM, SIGGRAPH Asia, NeurIPS, ICLR
 
 # Teaching
 - IERG4998&nbsp; Final Year Project, Fall 2023
