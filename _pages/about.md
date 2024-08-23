@@ -17,13 +17,16 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I am a first-year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), supervised by Prof. [Dahua Lin](http://dahua.site/).
-Prior to that, I received my Bachelor’s degree in the EE Department at [NJU](https://www.nju.edu.cn/en/).
-My research interests focus on deep generative models for visual content creation.
-Feel free to [contact me](mailto:guoyw.nju@gmail.com) if you are interested in my work. :)
+Hi, I am a second year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), supervised by Prof. [Dahua Lin](http://dahua.site/).
+Prior to that, I received my Bachelor’s degree in the EE Department at [Nanjing University](https://www.nju.edu.cn/en/).
+My research interests focus on deep generative models for visual content creation.  
+
+<font face="georgia" style="color:#CC0000; font-style: italic">I am always open to research collaboration and internship opportunities, feel free to <a href="mailto:guoyw.nju@gmail.com">drop me an email</a> if you are interested. :)</font>
 
 
 # News
+- **2024.08**&nbsp; We are organizing the Course on [Generative Models for Visual Content Editing and Creation](https://s2024.conference-program.org/presentation/?id=gensub_279&sess=sess166) at SIGGRAPH 2024.
+- **2024.07**&nbsp; SparseCtrl is accepted by ECCV 2024.
 - **2023.07**&nbsp; 🎉🎉 AnimateDiff is [online](https://github.com/guoyww/AnimateDiff).
 - **2023-06**&nbsp; We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
 
@@ -73,7 +76,7 @@ Feel free to [contact me](mailto:guoyw.nju@gmail.com) if you are interested in m
 
 [**[Paper]**](https://arxiv.org/abs/2307.04725)&nbsp;
 [**[Project]**](https://animatediff.github.io/)&nbsp;
-[**[Code (9.6k stars)]**](https://github.com/guoyww/AnimateDiff)
+[**[Code (10k+ stars)]**](https://github.com/guoyww/AnimateDiff)
 </div>
 </div>
 <!-- AnimateDiff -->
