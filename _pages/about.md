@@ -21,7 +21,9 @@ Hi, I am a second year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://
 Prior to that, I received my Bachelor’s degree in the EE Department at [Nanjing University](https://www.nju.edu.cn/en/).
 My research interests focus on deep generative models for visual content creation.  
 
-<font face="" style="color:#CC0000">I am open to research collaboration and internship opportunities. Feel free to <a href="mailto:guoyw.nju@gmail.com">drop me an email</a> if you are interested in working with me. :)</font>
+<!-- <font face="" style="color:#110000"> -->
+I am always open to research collaboration & internship opportunities. Feel free to <a href="mailto:guoyw.nju@gmail.com">drop me an email</a> if you are interested in working with me. :)
+<!-- </font> -->
 
 
 # News
@@ -34,8 +36,104 @@ My research interests focus on deep generative models for visual content creatio
 - **2023.08 - Present**&nbsp; Ph.D. in Information Engineering, The Chinese University of Hong Kong
 - **2019.09 - 2023.06**&nbsp; B.Sc. in Electronic Engineering, Nanjing University
 
-# Selected Researches
+# Selected Works
 *:equal contribution; †: corresponding author
+
+
+<!-- Imagine360 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/imagine360.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**Imagine360: Immersive 360 Video Generation from Perspective Anchor**
+
+[Jing Tan](https://sparkstj.github.io),
+[Shuai Yang](https://ys-imtech.github.io),
+[Tong Wu](https://wutong16.github.io),
+[Jingwen He](https://scholar.google.com/citations?user=GUxrycUAAAAJ&hl=zh-CN),
+**Yuwei Guo**,
+[Ziwei Liu](https://liuziwei7.github.io),
+[Dahua Lin](http://dahua.site)
+
+[**[Paper]**](https://arxiv.org/abs/2412.03552)&nbsp;
+[**[Project]**](https://ys-imtech.github.io/projects/Imagine360/)&nbsp;
+[**[Code]**](https://github.com/YS-IMTech/Imagine360)
+</div>
+</div>
+<!-- Imagine360 -->
+
+
+
+<!-- CameraCtrl -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/cameractrl.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**CameraCtrl: Enabling Camera Control for Video Diffusion Models**
+
+[Hao He](https://hehao13.github.io),
+[Yinghao Xu](https://justimyhxu.github.io),
+**Yuwei Guo**,
+[Gordon Wetzstein](https://stanford.edu/~gordonwz/),
+[Bo Dai](https://daibo.info) 
+[Hongsheng Li](https://www.ee.cuhk.edu.hk/~hsli/),
+[Ceyuan Yang](https://ceyuan.me)
+
+[**[Paper]**](https://arxiv.org/abs/2404.02101)&nbsp;
+[**[Project]**](https://hehao13.github.io/projects-CameraCtrl/)&nbsp;
+[**[Code]**](https://github.com/hehao13/CameraCtrl)
+</div>
+</div>
+<!-- CameraCtrl -->
+
+
+<!-- SAM2Long -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/sam2long.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree**
+
+[Shuangrui Ding](https://mark12ding.github.io),
+[Rui Qian](https://shvdiwnkozbw.github.io),
+[Xiaoyi Dong](https://lightdxy.github.io),
+[Pan Zhang](https://panzhang0212.github.io),
+[Yuhang Zang](https://yuhangzang.github.io),
+[Yuhang Cao](https://scholar.google.com/citations?user=sJkqsqkAAAAJ&hl=zh-CN), \\
+**Yuwei Guo**,
+[Dahua Lin](http://dahua.site),
+[Jiaqi Wang](https://myownskyw7.github.io)
+
+[**[Paper]**](https://arxiv.org/abs/2410.16268)&nbsp;
+[**[Project]**](https://mark12ding.github.io/project/SAM2Long/)&nbsp;
+[**[Code]**](https://github.com/Mark12Ding/SAM2Long)
+</div>
+</div>
+<!-- CameraCtrl -->
+
+
+<!-- HumanVid -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024 D&B Track</div><img src='images/papers/humanvid.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**HumanVid: Demystifying Training Data for Camera-controllable Human Image Animation**
+
+[Zhenzhi Wang](https://zhenzhiwang.github.io),
+[Yixuan Li](https://yixuanli98.github.io),
+[Yanhong Zeng](https://zengyh1900.github.io),
+[Youqing Fang](),
+**Yuwei Guo**,
+[Wenran Liu](),
+[Jing Tan](https://sparkstj.github.io),
+[Kai Chen](https://chenkai.site),
+[Tianfan Xue](https://tianfan.info),
+[Bo Dai](https://daibo.info),
+[Dahua Lin](http://dahua.site/)
+
+[**[Paper]**](https://arxiv.org/abs/2407.17438)&nbsp;
+[**[Project]**](https://humanvid.github.io/)&nbsp;
+[**[Code]**](https://github.com/zhenzhiwang/HumanVid)
+</div>
+</div>
+<!-- HumanVid -->
+
 
 <!-- SparseCtrl -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2024</div><img src='images/papers/sparsectrl.png' alt="sym" width="100%"></div></div>
@@ -119,7 +217,8 @@ My research interests focus on deep generative models for visual content creatio
 - **2023.11**&nbsp; Invited talk at Kunlun 2050 Research
 
 # Reviewer
-- 2024: SIGGRAPH, ACM MM, SIGGRAPH Asia, NeurIPS, ICLR
+- 2025: ICML
+- 2024: SIGGRAPH, ACM MM, SIGGRAPH Asia, NeurIPS, ICLR, CVPR
 
 # Teaching
 - IERG4998&nbsp; Final Year Project, Fall 2023
