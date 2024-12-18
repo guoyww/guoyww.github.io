@@ -30,7 +30,7 @@ I am always open to research collaboration & internship opportunities. Feel free
 - **2024.08**&nbsp; We are organizing the Course on [Generative Models for Visual Content Editing and Creation](https://s2024.conference-program.org/presentation/?id=gensub_279&sess=sess166) at SIGGRAPH 2024.
 - **2024.07**&nbsp; SparseCtrl is accepted by ECCV 2024.
 - **2023.07**&nbsp; 🎉🎉 AnimateDiff is [online](https://github.com/guoyww/AnimateDiff).
-- **2023-06**&nbsp; We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
+- **2023.06**&nbsp; We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
 
 # Educations
 - **2023.08 - Present**&nbsp; Ph.D. in Information Engineering, The Chinese University of Hong Kong
@@ -217,8 +217,8 @@ I am always open to research collaboration & internship opportunities. Feel free
 - **2023.11**&nbsp; Invited talk at Kunlun 2050 Research
 
 # Reviewer
-- 2025: ICML
-- 2024: SIGGRAPH, ACM MM, SIGGRAPH Asia, NeurIPS, ICLR, CVPR
+- **2025**&nbsp; ICML
+- **2024**&nbsp; SIGGRAPH, ACM MM, SIGGRAPH Asia, NeurIPS, ICLR, CVPR
 
 # Teaching
 - IERG4998&nbsp; Final Year Project, Fall 2023
