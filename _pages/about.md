@@ -62,29 +62,6 @@ I am always open to research collaboration & internship opportunities. Feel free
 <!-- Imagine360 -->
 
 
-
-<!-- CameraCtrl -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/cameractrl.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-**CameraCtrl: Enabling Camera Control for Video Diffusion Models**
-
-[Hao He](https://hehao13.github.io),
-[Yinghao Xu](https://justimyhxu.github.io),
-**Yuwei Guo**,
-[Gordon Wetzstein](https://stanford.edu/~gordonwz/),
-[Bo Dai](https://daibo.info) 
-[Hongsheng Li](https://www.ee.cuhk.edu.hk/~hsli/),
-[Ceyuan Yang](https://ceyuan.me)
-
-[**[Paper]**](https://arxiv.org/abs/2404.02101)&nbsp;
-[**[Project]**](https://hehao13.github.io/projects-CameraCtrl/)&nbsp;
-[**[Code]**](https://github.com/hehao13/CameraCtrl)
-</div>
-</div>
-<!-- CameraCtrl -->
-
-
 <!-- SAM2Long -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/sam2long.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -104,6 +81,28 @@ I am always open to research collaboration & internship opportunities. Feel free
 [**[Paper]**](https://arxiv.org/abs/2410.16268)&nbsp;
 [**[Project]**](https://mark12ding.github.io/project/SAM2Long/)&nbsp;
 [**[Code]**](https://github.com/Mark12Ding/SAM2Long)
+</div>
+</div>
+<!-- SAM2Long -->
+
+
+<!-- CameraCtrl -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2025</div><img src='images/papers/cameractrl.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**CameraCtrl: Enabling Camera Control for Video Diffusion Models**
+
+[Hao He](https://hehao13.github.io),
+[Yinghao Xu](https://justimyhxu.github.io),
+**Yuwei Guo**,
+[Gordon Wetzstein](https://stanford.edu/~gordonwz/),
+[Bo Dai](https://daibo.info) 
+[Hongsheng Li](https://www.ee.cuhk.edu.hk/~hsli/),
+[Ceyuan Yang](https://ceyuan.me)
+
+[**[Paper]**](https://arxiv.org/abs/2404.02101)&nbsp;
+[**[Project]**](https://hehao13.github.io/projects-CameraCtrl/)&nbsp;
+[**[Code]**](https://github.com/hehao13/CameraCtrl)
 </div>
 </div>
 <!-- CameraCtrl -->
