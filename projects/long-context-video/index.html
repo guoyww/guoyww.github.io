@@ -152,8 +152,8 @@
     }
     
     .media-caption {
-        margin-top: 15px;
-        font-size: 16px;
+        margin-top: 8px;
+        font-size: 12px;
         color: #aaa;
         text-align: center;
         width: 100%;
@@ -173,6 +173,7 @@
     
     .video-container {
         display: flex;
+        flex-direction: column;
         gap: 20px;
         width: 100%;
         border-radius: 8px;
@@ -180,7 +181,7 @@
     }
     
     .video-player-section {
-        flex: 1;
+        width: 100%;
         position: relative;
         border-radius: 8px;
         overflow: hidden;
@@ -196,7 +197,7 @@
     
     .video-controls {
         position: relative;
-        margin-top: 15px;
+        margin-top: -10px;
     }
     
     .video-timeline {
@@ -220,27 +221,52 @@
     .video-time {
         color: #fff;
         font-size: 14px;
-        margin-top: 8px;
+        margin-top: 4px;
         text-align: right;
     }
     
     .scenes-list {
-        width: 250px;
-        max-height: 400px;
-        overflow-y: auto;
+        width: 100%;
+        height: 90px;
+        overflow-x: auto;
+        overflow-y: hidden;
         background-color: rgba(30, 30, 30, 0.9);
         border-radius: 8px;
-    }
-    
-    .scene-item {
         display: flex;
-        padding: 10px;
-        border-bottom: 1px solid #2c3237;
+        flex-direction: row;
+        margin-top: -10px;
+        padding: 5px 5px;
+    }
+
+    /* .scene-item {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px;
+        border-right: 1px solid #2c3237;
         cursor: pointer;
         transition: background-color 0.2s;
+        min-width: 140px;
+        max-width: 140px;
+        border-radius: 4px;
+        margin: 0 2px;
         align-items: flex-start;
+    } */
+
+    .scene-item {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 5px;
+        border-right: 1px solid #2c3237;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        min-width: 100px;
+        max-width: 100px;
+        border-radius: 4px;
+        margin: 0 2px;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
-    
+
     .scene-item:hover {
         background-color: #2c3237;
     }
@@ -248,51 +274,60 @@
     .scene-item.active {
         background-color: #2c3237;
     }
-    
+
     .scene-thumbnail {
-        flex: 0 0 80px;
-        width: 80px;
+        width: auto;
+        display: inline-block;
+        margin: 0 0 4px 0;
         border-radius: 4px;
         overflow: hidden;
-        margin-right: 10px;
         background-color: #0f1112;
+        text-align: left;
     }
-    
+
     .scene-thumbnail img {
         border-radius: 0;
-        width: 100%;
-        height: auto;
         display: block;
-        object-fit: cover;
+        width: auto;
+        height: auto;
+        max-width: 60px;
+        /* max-height: 60px; */
+        object-fit: contain;
     }
-    
+
     .scene-info {
-        flex: 1;
-        min-width: 0;
+        width: 100%;
+        text-align: left;
     }
-    
+        
     .scene-title {
-        font-size: 12px;
-        margin-bottom: 4px;
+        font-size: 10px;
+        /* margin-bottom: 2px; */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .scene-description {
-        font-size: 12px;
+        font-size: 10px;
         color: #a0a0a0;
-        word-break: break-word;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .scenes-list::-webkit-scrollbar {
-        width: 8px;
+        height: 6px;
     }
     
     .scenes-list::-webkit-scrollbar-track {
         background: #1a1e21;
+        border-radius: 3px;
     }
     
     .scenes-list::-webkit-scrollbar-thumb {
         background-color: #2c3237;
-        border-radius: 4px;
+        border-radius: 3px;
     }
     
     .scenes-list::-webkit-scrollbar-thumb:hover {
@@ -376,16 +411,6 @@
             font-size: 24px;
         }
         
-        .video-container {
-            flex-direction: column;
-        }
-        
-        .scenes-list {
-            width: 100%;
-            max-height: 220px;
-            margin-top: 10px;
-        }
-        
         .composable-layout {
             flex-direction: column;
         }
@@ -403,6 +428,16 @@
             width: 100%;
             margin-top: 20px;
         }
+        
+        .scene-item {
+            min-width: 120px;
+            max-width: 120px;
+        }
+        
+        .scene-thumbnail {
+            width: 100px;
+            height: 55px;
+        }
     }
     
     @media (max-width: 480px) {
@@ -415,13 +450,18 @@
             padding: 60px 0 30px;
         }
         
+        .scene-item {
+            min-width: 100px;
+            max-width: 100px;
+        }
+        
         .scene-thumbnail {
-            flex: 0 0 60px;
-            width: 60px;
+            width: 80px;
+            height: 45px;
         }
         
         .scene-title, .scene-description {
-            font-size: 11px;
+            font-size: 10px;
         }
     }
 </style>
@@ -459,19 +499,13 @@
                             <div class="vimeo-embed">
                                 <div style="padding:55.05% 0 0 0;position:relative;">
                                     <iframe id="sceneVimeoPlayer" 
-                                            src="https://player.vimeo.com/video/1064548328?h=f6c79e89d0&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                            src="https://player.vimeo.com/video/1064594327?h=2c9e5753b2&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                                             frameborder="0" 
                                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                                             style="position:absolute;top:0;left:0;width:100%;height:100%;" 
                                             title="scene-level-video-generation">
                                     </iframe>
                                 </div>
-                            </div>
-                            <div class="video-controls">
-                                <div class="video-timeline">
-                                    <div class="video-progress"></div>
-                                </div>
-                                <div class="video-time">0:00 / 0:00</div>
                             </div>
                         </div>
                         
@@ -746,6 +780,15 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- 调整位置：将video-controls移到scenes-list下面 -->
+                        <div class="video-controls">
+                            <div class="video-timeline">
+                                <div class="video-progress"></div>
+                            </div>
+                            <div class="video-time">0:00 / 0:00</div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -763,7 +806,7 @@
             <div class="media-item">
                 <div class="vimeo-container">
                     <div style="padding:55.05% 0 0 0; position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1064533829?h=984962a841&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="multi-shot-extension"></iframe>
+                        <iframe src="https://player.vimeo.com/video/1064596001?h=ee40b4bba4&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="multi-shot-extension"></iframe>
                     </div>
                 </div>
             </div>
@@ -779,7 +822,7 @@
             <div class="media-item">
                 <div class="vimeo-container">
                     <div style="padding:55.05% 0 0 0; position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1064534038?h=d491e208ea&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="single-shot-extension"></iframe>
+                        <iframe src="https://player.vimeo.com/video/1064595352?h=c427cef7f6&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="single-shot-extension"></iframe>
                     </div>
                 </div>
             </div>
@@ -819,7 +862,7 @@
             <div class="media-item">
                 <div class="vimeo-container">
                     <div style="padding:55.05% 0 0 0; position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1064533740?h=8d10a1ebd9&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
+                        <iframe src="https://player.vimeo.com/video/1064595811?h=cd16bf3f15&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
                     </div>
                 </div>
             </div>
@@ -837,6 +880,7 @@
             const videoTimeline = document.querySelector('.video-timeline');
             const videoTime = document.querySelector('.video-time');
             const sceneItems = document.querySelectorAll('.scene-item');
+            const scenesList = document.querySelector('.scenes-list');
             
             let videoDuration = 60;
             
@@ -861,6 +905,17 @@
                     });
                     
                     this.classList.add('active');
+
+                    const itemRect = this.getBoundingClientRect();
+                    const listRect = scenesList.getBoundingClientRect();
+                    
+                    if (itemRect.left < listRect.left || itemRect.right > listRect.right) {
+                        const scrollLeft = this.offsetLeft - (listRect.width - itemRect.width) / 2;
+                        scenesList.scrollTo({
+                            left: scrollLeft,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
             
@@ -909,8 +964,15 @@
                         item.classList.add('active');
                         activeSceneFound = true;
                         
-                        if (!isElementInViewport(item, document.querySelector('.scenes-list'))) {
-                            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        const itemRect = item.getBoundingClientRect();
+                        const listRect = scenesList.getBoundingClientRect();
+                        
+                        if (itemRect.left < listRect.left || itemRect.right > listRect.right) {
+                            const scrollLeft = item.offsetLeft - (listRect.width - itemRect.width) / 2;
+                            scenesList.scrollTo({
+                                left: scrollLeft,
+                                behavior: 'smooth'
+                            });
                         }
                     } else {
                         item.classList.remove('active');
@@ -920,16 +982,6 @@
                 if (!activeSceneFound && sceneItems.length > 0) {
                     sceneItems[0].classList.add('active');
                 }
-            }
-            
-            function isElementInViewport(el, container) {
-                const rect = el.getBoundingClientRect();
-                const containerRect = container.getBoundingClientRect();
-                
-                return (
-                    rect.top >= containerRect.top &&
-                    rect.bottom <= containerRect.bottom
-                );
             }
         });
     </script>
