@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video LCT</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=block" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=block" rel="stylesheet">
+
+<style>
+    @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-stretch: 100%;
+        font-display: block;
+        font-weight: 300 700;
+        src: url(https://cdn.seaweed-apt.com/assets/fonts/roboto.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: "Outfit", sans-serif;
+        background-color: #000000;
+        color: #fff;
+        line-height: 1.6;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .vimeo-container {
+        border-radius: 8px;
+        overflow: hidden;
+        flex: 1 1 auto;
+        min-height: 300px;
+        width: 100%;
+    }
+    
+    header {
+        text-align: center;
+        padding: 80px 0 50px;
+    }
+    
+    .author {
+        font-size: 14px;
+        color: #aaa;
+        padding: 20px 5px 0;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: #aaa;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+         
+    .button {
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 14px;
+        margin-bottom: 30px;
+        transition: background-color 0.3s;
+    }
+    
+    h1 {
+        font-size: 36px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-weight: 400;
+        line-height: 1.0;
+    }
+    
+    .media-grid {
+        display: flex;
+        gap: 20px;
+        margin: 40px 0;
+        align-items: stretch; 
+        flex-wrap: nowrap;
+    }
+    
+    .media-grid.wrap {
+        flex-wrap: wrap;
+    }
+    
+    .media-grid > .media-item:only-child {
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+    
+    .media-grid > .media-item:only-child .image-container {
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
+    
+    .media-grid > .media-item:only-child img,
+    .media-grid > .media-item:only-child video {
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
+    
+    .media-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+        width: 100%;
+    }
+    
+    .image-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .media-item img, .media-item video {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+        display: block;
+    }
+    
+    .media-grid .media-item {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+    
+    .media-caption {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #aaa;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 28px;
+        margin: 100px 0 30px;
+        font-weight: 400;
+    }
+    
+    p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #ddd;
+    }
+    
+    .video-container {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .video-player-section {
+        flex: 1;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #000;
+    }
+    
+    .vimeo-embed {
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .video-controls {
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .video-timeline {
+        position: relative;
+        height: 6px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    
+    .video-progress {
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: width 0.1s ease;
+    }
+    
+    .video-time {
+        color: #fff;
+        font-size: 14px;
+        margin-top: 8px;
+        text-align: right;
+    }
+    
+    .scenes-list {
+        width: 250px;
+        max-height: 400px;
+        overflow-y: auto;
+        background-color: rgba(30, 30, 30, 0.9);
+        border-radius: 8px;
+    }
+    
+    .scene-item {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid #2c3237;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        align-items: flex-start;
+    }
+    
+    .scene-item:hover {
+        background-color: #2c3237;
+    }
+    
+    .scene-item.active {
+        background-color: #2c3237;
+    }
+    
+    .scene-thumbnail {
+        flex: 0 0 80px;
+        width: 80px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-right: 10px;
+        background-color: #0f1112;
+    }
+    
+    .scene-thumbnail img {
+        border-radius: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    
+    .scene-info {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .scene-title {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+    
+    .scene-description {
+        font-size: 12px;
+        color: #a0a0a0;
+        word-break: break-word;
+    }
+    
+    .scenes-list::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .scenes-list::-webkit-scrollbar-track {
+        background: #1a1e21;
+    }
+    
+    .scenes-list::-webkit-scrollbar-thumb {
+        background-color: #2c3237;
+        border-radius: 4px;
+    }
+    
+    .scenes-list::-webkit-scrollbar-thumb:hover {
+        background-color: #3f454a;
+    }
+    
+    .composable-layout {
+        display: flex;
+        gap: 20px;
+        margin: 40px 0;
+        align-items: flex-start;
+    }
+    
+    .composable-inputs {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .composable-input-item {
+        width: 100%;
+    }
+    
+    .composable-input-item .image-container {
+        width: 100%;
+        background-color: #14556e;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .composable-input-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    .composable-output {
+        width: 75%;
+    }
+    
+    .composable-output .image-container {
+        width: 100%;
+        background-color: #14556e;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .composable-output video {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 28px;
+        }
+        
+        .media-grid {
+            flex-direction: column;
+        }
+        
+        .media-grid .media-item {
+            flex: 1 0 100%;
+            max-width: 100%;
+        }
+        
+        .image-container {
+            height: auto;
+            max-height: 360px;
+            width: 100%;
+        }
+        
+        .media-item img, .media-item video {
+            width: 100%;
+            height: auto;
+        }
+        
+        .section-title {
+            font-size: 24px;
+        }
+        
+        .video-container {
+            flex-direction: column;
+        }
+        
+        .scenes-list {
+            width: 100%;
+            max-height: 220px;
+            margin-top: 10px;
+        }
+        
+        .composable-layout {
+            flex-direction: column;
+        }
+        
+        .composable-inputs {
+            width: 100%;
+            flex-direction: row;
+        }
+        
+        .composable-input-item {
+            width: 50%;
+        }
+        
+        .composable-output {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .author {
+            padding: 15px 2px 0;
+            font-size: 12px;
+        }
+        
+        header {
+            padding: 60px 0 30px;
+        }
+        
+        .scene-thumbnail {
+            flex: 0 0 60px;
+            width: 60px;
+        }
+        
+        .scene-title, .scene-description {
+            font-size: 11px;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Long Context Tuning for Video Generation</h1>
+            <div style="margin-top: 20px;">
+                <div>
+                    <a class="author" href="https://guoyww.github.io/" target="_blank" rel="noopener noreferrer">Yuwei Guo<sup>1,2</sup></a>
+                    <a class="author" href="https://ceyuan.me/" target="_blank" rel="noopener noreferrer">Ceyuan Yang<sup>2,✝</sup></a>
+                    <a class="author" href="https://ziyanyang.github.io/" target="_blank" rel="noopener noreferrer">Ziyan Yang<sup>2</sup></a>
+                    <a class="author" href="https://scholar.google.com/citations?user=SRJhuT8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Zhibei Ma<sup>3</sup></a>
+                    <a class="author" href="https://scholar.google.com/citations?user=xXMj6_EAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Zhijie Lin<sup>2</sup></a>
+                    <a class="author" href="https://zhenheny.github.io/" target="_blank" rel="noopener noreferrer">Zhenheng Yang<sup>3</sup></a>
+                    <a class="author" href="http://dahua.site/" target="_blank" rel="noopener noreferrer">Dahua Lin<sup>1</sup></a>
+                    <a class="author" href="http://www.lujiang.info/" target="_blank" rel="noopener noreferrer">Lu Jiang<sup>2</sup></a>
+                </div>
+                <div>
+                    <span class="author" style="padding-top: 0"><sup>1</sup>The Chinese University of Hong Kong</span>
+                    <span class="author" style="padding-top: 0"><sup>2</sup>ByteDance Seed</span>
+                    <span class="author" style="padding-top: 0"><sup>3</sup>ByteDance</span>
+                </div>
+                <div class="author" style="padding-top: 0; font-size: 12px;"><sup>✝</sup>Corresponding Author</div>
+            </div>
+            <a href="https://guoyww.github.io/" class="button" style="margin-top: 50px;">Paper (comming soon)</a>
+        </header>
+
+        <div class="media-grid">
+            <div class="media-item">
+                <div class="image-container">
+                    <div class="video-container">
+                        <div class="video-player-section">
+                            <div class="vimeo-embed">
+                                <div style="padding:55.05% 0 0 0;position:relative;">
+                                    <iframe id="sceneVimeoPlayer" 
+                                            src="https://player.vimeo.com/video/1064548328?h=f6c79e89d0&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                            frameborder="0" 
+                                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                                            style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                                            title="scene-level-video-generation">
+                                    </iframe>
+                                </div>
+                            </div>
+                            <div class="video-controls">
+                                <div class="video-timeline">
+                                    <div class="video-progress"></div>
+                                </div>
+                                <div class="video-time">0:00 / 0:00</div>
+                            </div>
+                        </div>
+                        
+                        <div class="scenes-list">
+                            <div class="scene-item active" data-time="3">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-1.jpg" alt="Scene 1">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 1</div>
+                                    <div class="scene-description">forest flying view</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="14">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-2.jpg" alt="Scene 2">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 2</div>
+                                    <div class="scene-description">low-angle view</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="24">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-3.jpg" alt="Scene 3">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 3</div>
+                                    <div class="scene-description">get lost in forest</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="35">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-4.jpg" alt="Scene 4">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 4</div>
+                                    <div class="scene-description">girl walks out</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="40">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-5.jpg" alt="Scene 5">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 5</div>
+                                    <div class="scene-description">walks towards camera</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="49">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-6.jpg" alt="Scene 6">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 6</div>
+                                    <div class="scene-description">POV of forest</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="60">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-7.jpg" alt="Scene 7">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 7</div>
+                                    <div class="scene-description">meet and discuss</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="70">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-8.jpg" alt="Scene 8">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 8</div>
+                                    <div class="scene-description">close-up to serious face</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="81">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-9.jpg" alt="Scene 9">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 9</div>
+                                    <div class="scene-description">worrying expression</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="91">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-10.jpg" alt="Scene 10">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 10</div>
+                                    <div class="scene-description">continue exploration</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="102">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-11.jpg" alt="Scene 11">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 11</div>
+                                    <div class="scene-description">high-angle view</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="112">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-12.jpg" alt="Scene 12">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 12</div>
+                                    <div class="scene-description">wide shot</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="118">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-13.jpg" alt="Scene 13">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 13</div>
+                                    <div class="scene-description">arrive at a clearing</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="129">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-14.jpg" alt="Scene 14">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 14</div>
+                                    <div class="scene-description">find an abandon house</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="139">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-15.jpg" alt="Scene 15">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 15</div>
+                                    <div class="scene-description">focus on the house</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="145">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-16.jpg" alt="Scene 16">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 16</div>
+                                    <div class="scene-description">cautiously discuss</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="155">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-17.jpg" alt="Scene 17">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 17</div>
+                                    <div class="scene-description">close-up to the door</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="165">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-18.jpg" alt="Scene 18">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 18</div>
+                                    <div class="scene-description">tries to open the door</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="176">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-19.jpg" alt="Scene 19">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 19</div>
+                                    <div class="scene-description">interior of the house</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="186">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-20.jpg" alt="Scene 20">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 20</div>
+                                    <div class="scene-description">enter and explore</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="197">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-21.jpg" alt="Scene 21">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 21</div>
+                                    <div class="scene-description">continue exploration</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="207">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-22.jpg" alt="Scene 22">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 22</div>
+                                    <div class="scene-description">into a dusty room</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="214">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-23.jpg" alt="Scene 23">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 23</div>
+                                    <div class="scene-description">showing room's layout</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="225">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-24.jpg" alt="Scene 24">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 24</div>
+                                    <div class="scene-description">close-up to the shelf</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="235">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-25.jpg" alt="Scene 25">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 25</div>
+                                    <div class="scene-description">find something on desk</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="246">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-26.jpg" alt="Scene 26">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 26</div>
+                                    <div class="scene-description">magic ball appears</div>
+                                </div>
+                            </div>
+
+                            <div class="scene-item" data-time="256">
+                                <div class="scene-thumbnail">
+                                    <img src="assets/shot_imgs/shot-27.jpg" alt="Scene 27">
+                                </div>
+                                <div class="scene-info">
+                                    <div class="scene-title">Shot 27</div>
+                                    <div class="scene-description">their shocked faces</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <img src="assets/archtecture-fig.png" style="width: 100%;">
+
+        <div class="section-title">Interactive Multi-shot Extension</div>
+        
+        <p>Our model enables interactive multi-shot development. This facilitates an iterative production workflow where directors can progressively shape content shot-by-shot based on previously generated footage, eliminating the need for comprehensive upfront prompting and allowing for creative decision-making with immediate visual feedback.</p>
+
+        <img src="assets/multi-shot-extension-fig.png" style="width: 100%;">
+
+        <div class="media-grid">
+            <div class="media-item">
+                <div class="vimeo-container">
+                    <div style="padding:55.05% 0 0 0; position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1064533829?h=984962a841&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="multi-shot-extension"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">Interactive Single-shot Extension</div>
+
+        <p>our model enables interactive shot extension without shotcut. This approach can extend a single shot to minute-long durations, auto-regressively generating 10-second segments while maintaining visual consistency.</p>
+
+        <img src="assets/single-shot-extension-img.png" style="width: 100%;">
+
+        <div class="media-grid">
+            <div class="media-item">
+                <div class="vimeo-container">
+                    <div style="padding:55.05% 0 0 0; position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1064534038?h=d491e208ea&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="single-shot-extension"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">Composable Generation</div>
+        <p>Remarkably, despite no explicit training for this capability, our model enables composable generation by accepting separate identity and environment images to synthesize coherent videos integrating these distinct elements.</p>
+
+        <div class="composable-layout">
+            <div class="composable-inputs">
+                <div class="composable-input-item">
+                    <div class="image-container">
+                        <img src="assets/composable-generation-id.png" alt="Identity image">
+                    </div>
+                    <div class="media-caption">Identity image</div>
+                </div>
+                <div class="composable-input-item">
+                    <div class="image-container">
+                        <img src="assets/composable-generation-env.png" alt="Environment image">
+                    </div>
+                    <div class="media-caption">Environment image</div>
+                </div>
+            </div>
+            
+            <div class="composable-output">
+                <div class="image-container">
+                    <video autoplay loop muted playsinline controls>
+                        <source src="assets/composable-generation-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">More Results</div>
+
+        <div class="media-grid">
+            <div class="media-item">
+                <div class="vimeo-container">
+                    <div style="padding:55.05% 0 0 0; position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1064533740?h=8d10a1ebd9&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('sceneVimeoPlayer');
+            const player = new Vimeo.Player(iframe);
+            
+            const videoProgress = document.querySelector('.video-progress');
+            const videoTimeline = document.querySelector('.video-timeline');
+            const videoTime = document.querySelector('.video-time');
+            const sceneItems = document.querySelectorAll('.scene-item');
+            
+            let videoDuration = 60;
+            
+            player.getDuration().then(function(duration) {
+                videoDuration = duration;
+                updateTimeDisplay(0, videoDuration);
+            }).catch(function(error) {
+                console.error('获取视频时长失败:', error);
+            });
+            
+            sceneItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const jumpTime = parseFloat(this.getAttribute('data-time'));
+                    player.setCurrentTime(jumpTime).then(function() {
+                        player.play();
+                    }).catch(function(error) {
+                        console.error('设置播放时间失败:', error);
+                    });
+                    
+                    sceneItems.forEach(scene => {
+                        scene.classList.remove('active');
+                    });
+                    
+                    this.classList.add('active');
+                });
+            });
+            
+            player.on('timeupdate', function(data) {
+                const currentTime = data.seconds;
+                const progressPercent = (currentTime / videoDuration) * 100;
+                
+                videoProgress.style.width = `${progressPercent}%`;
+                updateTimeDisplay(currentTime, videoDuration);
+                
+                updateActiveScene(currentTime);
+            });
+            
+            videoTimeline.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const position = (e.clientX - rect.left) / rect.width;
+                const seekTime = position * videoDuration;
+                
+                player.setCurrentTime(seekTime).then(function() {
+                    player.play();
+                }).catch(function(error) {
+                    console.error('设置播放时间失败:', error);
+                });
+            });
+            
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60);
+                return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+            }
+            
+            function updateTimeDisplay(currentTime, duration) {
+                videoTime.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+            }
+            
+            function updateActiveScene(currentTime) {
+                let activeSceneFound = false;
+                
+                sceneItems.forEach((item, index) => {
+                    const itemTime = parseFloat(item.getAttribute('data-time'));
+                    const nextItemTime = index < sceneItems.length - 1 
+                        ? parseFloat(sceneItems[index + 1].getAttribute('data-time')) 
+                        : videoDuration;
+                    
+                    if (currentTime >= itemTime && currentTime < nextItemTime) {
+                        item.classList.add('active');
+                        activeSceneFound = true;
+                        
+                        if (!isElementInViewport(item, document.querySelector('.scenes-list'))) {
+                            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                if (!activeSceneFound && sceneItems.length > 0) {
+                    sceneItems[0].classList.add('active');
+                }
+            }
+            
+            function isElementInViewport(el, container) {
+                const rect = el.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                return (
+                    rect.top >= containerRect.top &&
+                    rect.bottom <= containerRect.bottom
+                );
+            }
+        });
+    </script>
+</body>
+</html>
