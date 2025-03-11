@@ -57,9 +57,9 @@
     }
     
     .author {
-        font-size: 14px;
+        font-size: 18px;
         color: #aaa;
-        padding: 20px 5px 0;
+        padding: 20px 6px 0;
         text-align: center;
     }
 
@@ -79,13 +79,14 @@
         padding: 8px 16px;
         border-radius: 20px;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 18px;
         margin-bottom: 30px;
         transition: background-color 0.3s;
     }
     
     h1 {
-        font-size: 36px;
+        /* font-size: 36px; */
+        font-size: 50px;
         margin-top: 50px;
         margin-bottom: 20px;
         font-weight: 400;
@@ -154,7 +155,7 @@
     
     .media-caption {
         margin-top: 8px;
-        font-size: 12px;
+        font-size: 16px;
         color: #aaa;
         text-align: center;
         width: 100%;
@@ -168,7 +169,7 @@
     
     p {
         margin-bottom: 20px;
-        font-size: 16px;
+        font-size: 18px;
         color: #ddd;
     }
     
@@ -221,7 +222,7 @@
     
     .video-time {
         color: #fff;
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 4px;
         text-align: right;
     }
@@ -487,9 +488,9 @@
                     <span class="author" style="padding-top: 0"><sup>2</sup>ByteDance Seed</span>
                     <span class="author" style="padding-top: 0"><sup>3</sup>ByteDance</span>
                 </div>
-                <div class="author" style="padding-top: 0; font-size: 12px;"><sup>✝</sup>Corresponding Author</div>
+                <div class="author" style="padding-top: 0; font-size: 16px;"><sup>✝</sup>Corresponding Author</div>
             </div>
-            <a href="https://guoyww.github.io/" class="button" style="margin-top: 50px;">Paper (comming soon)</a>
+            <a href="https://guoyww.github.io/" class="button" style="margin-top: 50px;">Research Paper (comming soon)</a>
         </header>
 
         <div class="media-grid">
@@ -782,7 +783,6 @@
                             </div>
                         </div>
                         
-                        <!-- 调整位置：将video-controls移到scenes-list下面 -->
                         <div class="video-controls">
                             <div class="video-timeline">
                                 <div class="video-progress"></div>
@@ -794,14 +794,50 @@
                 </div>
             </div>
         </div>
-        
-        <img src="assets/archtecture-fig.png" style="width: 100%;">
 
-        <div class="section-title">Interactive Multi-shot Extension</div>
+        <p>
+            We propose Long Context Tuning (LCT) for scene-level video generation, to bridge the gap between current single-shot generation capability and real-world narrative video (e.g., movies) productions.
+            In this scenario, a scene is a series of single-shot videos capturing coherent events unfolding over time with semantic and temporal consistency, and our solution directly learns such consistency upon curated scene-level video data.
+        </p>
+        
+
+        <div class="media-grid">
+            <div class="media-item">
+                <img src="assets/archtecture-fig.png" style="width: 100%;">
+                <div class="media-caption">Architecture Designs for Long Context Tuning.</div>
+            </div>
+        </div>
+
+        <p>
+            We solve the problem with a data-driven apporach and minimize architectural inductive bias that may compromise scability.
+            The core of our method is expanding the span of MMDiT's context window from single-shot to the entire scene.
+            This modification is compatible with MMDiT-based single-shot video diffusion models and introduce no additional parameters, thus can be viewed as an following training stage after single-shot video generation pre-training.
+        </p>
+
+        <p>
+            We employ an interleaved 3D Rotary Position Embedding (RoPE) to encode scene-level video order, as well as an asyncronized diffusion timestep strategy to unify visual conditioning and diffusion samples. We further explore a context-causal architecture that enable efficient auto-regressive shot generation with KV-cache.
+        </p>
+
+        <p>
+            Notably, besides its superior scene-level video generation capability, we find Long Context Tuning enables several emerging model capability, including single-/multi-shot extension and compositional generation.
+        </p>
+
+        <!-- <div class="section-title">Interactive Multi-shot Extension</div> -->
+        <div class="section-title">Interactively Direct a Multi-shot Story</div>
         
         <p>Our model enables interactive multi-shot development. This facilitates an iterative production workflow where directors can progressively shape content shot-by-shot based on previously generated footage, eliminating the need for comprehensive upfront prompting and allowing for creative decision-making with immediate visual feedback.</p>
 
-        <img src="assets/multi-shot-extension-fig.png" style="width: 100%;">
+        <div class="media-grid">
+            <div class="media-item">
+                <img src="assets/multi-shot-extension-fig.png" style="width: 100%;">
+                <div class="media-caption">Interactive Generation.</div>
+            </div>
+        </div>
+
+        <p>
+            The above diagram present the progress of how we can extend a SoRA' single-shot video by providing text prompt interactively.
+            The complete video is presented as follow:
+        </p>
 
         <div class="media-grid">
             <div class="media-item">
@@ -817,7 +853,18 @@
 
         <p>our model enables interactive shot extension without shotcut. This approach can extend a single shot to minute-long durations, auto-regressively generating 10-second segments while maintaining visual consistency.</p>
 
-        <img src="assets/single-shot-extension-img.png" style="width: 100%;">
+        <div class="media-grid">
+            <div class="media-item">
+                <img src="assets/single-shot-extension-img.png" style="width: 100%;">
+                <div class="media-caption">Interactive Multi-shot Direction.</div>
+            </div>
+        </div>
+
+        <p>
+            The above diagram present the progress of how we can extend the story from an initial SoRA video by providing text prompt interactively.
+            The complete video is presented as follow:
+        </p>
+
 
         <div class="media-grid">
             <div class="media-item">
@@ -830,7 +877,10 @@
         </div>
         
         <div class="section-title">Composable Generation</div>
-        <p>Remarkably, despite no explicit training for this capability, our model enables composable generation by accepting separate identity and environment images to synthesize coherent videos integrating these distinct elements.</p>
+        <p>
+            Remarkably, despite no explicit training for this capability, our model enables composable generation by accepting separate identity and environment images to synthesize coherent videos integrating these distinct elements.
+            This ability emerges from the model's learned scene-level visual relations in the training corpus, where scenes frequently contain establishing environmental shots, character close-ups, and integrated shots depicting character-environment interactions.
+        </p>
 
         <div class="composable-layout">
             <div class="composable-inputs">
