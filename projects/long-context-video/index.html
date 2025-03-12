@@ -65,7 +65,7 @@
 
     a {
         text-decoration: none;
-        color: #aaa;
+        /* color: #aaa; */
     }
     
     a:hover {
@@ -366,7 +366,13 @@
         width: 100%;
         height: auto;
     }
-    
+
+    .composable-input-item video {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
     .composable-output {
         width: 75%;
     }
@@ -477,7 +483,7 @@
                     <a class="author" href="https://guoyww.github.io/" target="_blank" rel="noopener noreferrer">Yuwei Guo<sup>1,2</sup></a>
                     <a class="author" href="https://ceyuan.me/" target="_blank" rel="noopener noreferrer">Ceyuan Yang<sup>2,✝</sup></a>
                     <a class="author" href="https://ziyanyang.github.io/" target="_blank" rel="noopener noreferrer">Ziyan Yang<sup>2</sup></a>
-                    <a class="author" href="https://scholar.google.com/citations?user=SRJhuT8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Zhibei Ma<sup>3</sup></a>
+                    <a class="author" href="https://www.linkedin.com/in/zhibei-ma-30385bb8/" target="_blank" rel="noopener noreferrer">Zhibei Ma<sup>2</sup></a>
                     <a class="author" href="https://scholar.google.com/citations?user=xXMj6_EAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Zhijie Lin<sup>2</sup></a>
                     <a class="author" href="https://zhenheny.github.io/" target="_blank" rel="noopener noreferrer">Zhenheng Yang<sup>3</sup></a>
                     <a class="author" href="http://dahua.site/" target="_blank" rel="noopener noreferrer">Dahua Lin<sup>1</sup></a>
@@ -797,7 +803,7 @@
 
         <p>
             We propose Long Context Tuning (LCT) for scene-level video generation, to bridge the gap between current single-shot generation capability and real-world narrative video (e.g., movies) productions.
-            In this scenario, a scene is a series of single-shot videos capturing coherent events unfolding over time with semantic and temporal consistency, and our solution directly learns such consistency upon curated scene-level video data.
+            In this scenario, a scene is a series of single-shot videos capturing coherent events unfolding over time with semantic and temporal consistency.
         </p>
         
 
@@ -809,14 +815,15 @@
         </div>
 
         <p>
-            We solve the problem with a data-driven apporach and minimize architectural inductive bias that may compromise scability.
+            We solve the problem with a data-driven apporach by directly learning scene-level consistency upon data, and we minimize architectural inductive bias that may compromise scability.
             The core of our method is expanding the span of MMDiT's context window from single-shot to the entire scene.
             This modification is compatible with MMDiT-based single-shot video diffusion models and introduce no additional parameters, thus can be viewed as an following training stage after single-shot video generation pre-training.
-            Our experiments are conducted with an internal video model with 3B parameter scale.
         </p>
 
         <p>
             We employ an interleaved 3D Rotary Position Embedding (RoPE) to encode scene-level video order, as well as an asyncronized diffusion timestep strategy to unify visual conditioning and diffusion samples. We further explore a context-causal architecture that enable efficient auto-regressive shot generation with KV-cache.
+            Our experiments are conducted with an internal video model with 3B parameter scale.
+            See our <a href="#" style="text-decoration: underline; color: #ddd;">Research Paper</a> for more details.
         </p>
 
         <p>
@@ -831,7 +838,7 @@
         <div class="media-grid">
             <div class="media-item">
                 <img src="assets/multi-shot-extension-fig.png" style="width: 100%;">
-                <div class="media-caption">Interactive Generation.</div>
+                <div class="media-caption">Interactive Multi-shot Development.</div>
             </div>
         </div>
 
@@ -857,7 +864,7 @@
         <div class="media-grid">
             <div class="media-item">
                 <img src="assets/single-shot-extension-img.png" style="width: 100%;">
-                <div class="media-caption">Interactive Multi-shot Direction.</div>
+                <div class="media-caption">Interactive Single-shot Extension.</div>
             </div>
         </div>
 
@@ -889,20 +896,44 @@
                     <div class="image-container">
                         <img src="assets/composable-generation-id.jpg" alt="Identity image">
                     </div>
-                    <div class="media-caption">Identity image</div>
+                    <div class="media-caption">Identity Image 1</div>
                 </div>
                 <div class="composable-input-item">
                     <div class="image-container">
                         <img src="assets/composable-generation-env.jpg" alt="Environment image">
                     </div>
-                    <div class="media-caption">Environment image</div>
+                    <div class="media-caption">Environment Image</div>
                 </div>
             </div>
             
             <div class="composable-output">
                 <div class="image-container">
-                    <video autoplay loop muted playsinline controls>
+                    <video muted playsinline controls>
                         <source src="assets/composable-generation-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <p>
+            Similarly, we can continue the compositional generation by feeding another identity image in company with the history, to synthesize a video capturing a conversation between the two charcters.
+            The background is notably consistency with the history conditions.
+        </p>
+
+        <div class="composable-layout">
+            <div class="composable-inputs">
+                <div class="composable-input-item">
+                    <div class="image-container">
+                        <img src="assets/composable-generation-id-2.jpg" alt="Environment image">
+                    </div>
+                    <div class="media-caption">History + Identity Image 2</div>
+                </div>
+            </div>
+            
+            <div class="composable-output">
+                <div class="image-container">
+                    <video muted playsinline controls>
+                        <source src="assets/composable-generation-video-2.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
