@@ -32,31 +32,51 @@
         background-color: #000000;
         color: #fff;
         line-height: 1.6;
-        padding: 0;
-        margin: 0;
     }
     
     .container {
-        /* max-width: 1000px; */
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
     }
 
-    .vimeo-container {
-        border-radius: 8px;
-        overflow: hidden;
-        flex: 1 1 auto;
-        min-height: 300px;
-        width: 100%;
+    a {
+        color: #ddd;
+        text-decoration: underline;
     }
-    
+
+    a:visited {
+        color: #ddd;
+    }
+
+    /* Common text styles */
+    p {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #ddd;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-weight: 400;
+        line-height: 1.0;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin: 100px 0 30px;
+        font-weight: 400;
+    }
+
+    /* Header styles */
     header {
         text-align: center;
         padding: 80px 0 50px;
     }
     
-    .author {
+    .author, .author-a {
         font-size: 18px;
         color: #aaa;
         padding: 20px 6px 0;
@@ -65,21 +85,13 @@
         text-decoration: none;
     }
 
-    .author-a {
-        font-size: 18px;
-        color: #aaa;
-        padding: 20px 6px 0;
-        text-align: center;
-        transition: color 0.3s;
-        text-decoration: none;
+    .corresponding-author {
+        padding-top: 0; 
+        font-size: 16px;
     }
 
     .author-a:hover {
         color: #444;
-    }
-
-    a {
-        color: #ddd;
     }
 
     .button {
@@ -88,24 +100,24 @@
         color: #fff;
         padding: 8px 16px;
         border-radius: 20px;
-        text-decoration: none;
         font-size: 18px;
-        margin-bottom: 30px;
+        margin: 50px 0 30px;
         transition: background-color 0.3s;
+        text-decoration: none;
     }
 
     .button:hover {
         color: #fff;
         background-color: #444;
     }
-
-    h1 {
-        /* font-size: 36px; */
-        font-size: 50px;
-        margin-top: 50px;
-        margin-bottom: 20px;
-        font-weight: 400;
-        line-height: 1.0;
+    
+    /* Media containers */
+    .vimeo-container {
+        border-radius: 8px;
+        overflow: hidden;
+        flex: 1 1 auto;
+        min-height: 300px;
+        width: 100%;
     }
     
     .media-grid {
@@ -120,30 +132,21 @@
         flex-wrap: wrap;
     }
     
-    .media-grid > .media-item:only-child {
-        flex: 1 0 100%;
-        max-width: 100%;
-    }
-    
-    .media-grid > .media-item:only-child .image-container {
-        width: 100%;
-        height: auto;
-        max-height: none;
-    }
-    
-    .media-grid > .media-item:only-child img,
-    .media-grid > .media-item:only-child video {
-        width: 100%;
-        height: auto;
-        max-height: none;
-    }
-    
     .media-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 0;
         width: 100%;
+    }
+    
+    .media-grid .media-item {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+    
+    .media-grid > .media-item:only-child {
+        flex: 1 0 100%;
+        max-width: 100%;
     }
     
     .image-container {
@@ -155,17 +158,13 @@
         width: 100%;
     }
     
-    .media-item img, .media-item video {
+    .media-item img, 
+    .media-item video {
         max-height: 100%;
         max-width: 100%;
         object-fit: contain;
         border-radius: 8px;
         display: block;
-    }
-    
-    .media-grid .media-item {
-        flex: 1 1 0;
-        min-width: 0;
     }
     
     .media-caption {
@@ -176,6 +175,7 @@
         width: 100%;
     }
     
+    /* Flex column grid */
     .flex-column-grid {
         display: flex;
         gap: 20px;
@@ -208,34 +208,9 @@
 
     .column .media-caption {
         margin-top: 10px;
-        text-align: center;
-        width: 100%;
     }
 
-    /* 针对响应式布局的修改 */
-    @media (max-width: 768px) {
-        .flex-column-grid {
-            flex-direction: column;
-        }
-        
-        .column {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-    }
-
-    .section-title {
-        font-size: 28px;
-        margin: 100px 0 30px;
-        font-weight: 400;
-    }
-    
-    p {
-        margin-bottom: 20px;
-        font-size: 18px;
-        color: #ddd;
-    }
-    
+    /* Video player styles */
     .video-container {
         display: flex;
         flex-direction: column;
@@ -290,6 +265,7 @@
         text-align: right;
     }
     
+    /* Scenes list styles */
     .scenes-list {
         width: 100%;
         height: 90px;
@@ -300,27 +276,13 @@
         display: flex;
         flex-direction: row;
         margin-top: -10px;
-        padding: 5px 5px;
+        padding: 5px;
     }
-
-    /* .scene-item {
-        display: flex;
-        flex-direction: column;
-        padding: 5px 10px;
-        border-right: 1px solid #2c3237;
-        cursor: pointer;
-        transition: background-color 0.2s;
-        min-width: 140px;
-        max-width: 140px;
-        border-radius: 4px;
-        margin: 0 2px;
-        align-items: flex-start;
-    } */
 
     .scene-item {
         display: flex;
         flex-direction: column;
-        padding: 5px 5px;
+        padding: 5px;
         border-right: 1px solid #2c3237;
         cursor: pointer;
         transition: background-color 0.2s;
@@ -332,10 +294,7 @@
         justify-content: flex-start;
     }
 
-    .scene-item:hover {
-        background-color: #2c3237;
-    }
-    
+    .scene-item:hover,
     .scene-item.active {
         background-color: #2c3237;
     }
@@ -356,7 +315,6 @@
         width: auto;
         height: auto;
         max-width: 60px;
-        /* max-height: 60px; */
         object-fit: contain;
     }
 
@@ -365,22 +323,19 @@
         text-align: left;
     }
         
-    .scene-title {
+    .scene-title,
+    .scene-description {
         font-size: 10px;
-        /* margin-bottom: 2px; */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
     
     .scene-description {
-        font-size: 10px;
         color: #a0a0a0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
     
+    /* Scrollbar customization */
     .scenes-list::-webkit-scrollbar {
         height: 6px;
     }
@@ -399,6 +354,7 @@
         background-color: #3f454a;
     }
     
+    /* Composable layout */
     .composable-layout {
         display: flex;
         gap: 20px;
@@ -407,7 +363,7 @@
     }
     
     .composable-inputs {
-        width: 30%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -417,20 +373,17 @@
         width: 100%;
     }
     
-    .composable-input-item .image-container {
+    .composable-input-item .image-container,
+    .composable-output .image-container {
         width: 100%;
         background-color: #14556e;
         border-radius: 8px;
         overflow: hidden;
     }
     
-    .composable-input-item img {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-
-    .composable-input-item video {
+    .composable-input-item img,
+    .composable-input-item video,
+    .composable-output video {
         display: block;
         width: 100%;
         height: auto;
@@ -440,22 +393,32 @@
         width: 70%;
     }
     
-    .composable-output .image-container {
-        width: 100%;
-        background-color: #14556e;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    
-    .composable-output video {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-    
+    /* Responsive styles */
     @media (max-width: 768px) {
         h1 {
-            font-size: 28px;
+            font-size: 32px;
+        }
+        
+        p {
+            font-size: 16px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin: 60px 0 20px;
+        }
+        
+        .author, .author-a {
+            font-size: 16px;
+        }
+        
+        .corresponding-author {
+            font-size: 14px;
+        }
+        
+        .button {
+            font-size: 16px;
+            padding: 6px 14px;
         }
         
         .media-grid {
@@ -473,13 +436,13 @@
             width: 100%;
         }
         
-        .media-item img, .media-item video {
-            width: 100%;
-            height: auto;
+        .flex-column-grid {
+            flex-direction: column;
         }
         
-        .section-title {
-            font-size: 24px;
+        .column {
+            width: 100%;
+            margin-bottom: 20px;
         }
         
         .composable-layout {
@@ -512,9 +475,31 @@
     }
     
     @media (max-width: 480px) {
-        .author {
+        h1 {
+            font-size: 24px;
+            margin-top: 30px;
+        }
+        
+        .author, .author-a {
             padding: 15px 2px 0;
+            font-size: 14px;
+        }
+        
+        .corresponding-author {
             font-size: 12px;
+        }
+        
+        p {
+            font-size: 15px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            margin: 40px 0 15px;
+        }
+        
+        .media-caption {
+            font-size: 14px;
         }
         
         header {
@@ -531,8 +516,12 @@
             height: 45px;
         }
         
-        .scene-title, .scene-description {
-            font-size: 10px;
+        .composable-inputs {
+            flex-direction: column;
+        }
+        
+        .composable-input-item {
+            width: 100%;
         }
     }
 </style>
@@ -553,13 +542,13 @@
                     <a class="author-a" href="http://www.lujiang.info/" target="_blank" rel="noopener noreferrer">Lu Jiang<sup>2</sup></a>
                 </div>
                 <div>
-                    <span class="author" style="padding-top: 0"><sup>1</sup>The Chinese University of Hong Kong</span>
-                    <span class="author" style="padding-top: 0"><sup>2</sup>ByteDance Seed</span>
-                    <span class="author" style="padding-top: 0"><sup>3</sup>ByteDance</span>
+                    <span class="author"><sup>1</sup>The Chinese University of Hong Kong</span>
+                    <span class="author"><sup>2</sup>ByteDance Seed</span>
+                    <span class="author"><sup>3</sup>ByteDance</span>
                 </div>
-                <div class="author" style="padding-top: 0; font-size: 16px;"><sup>✝</sup>Corresponding Author</div>
+                <div class="author corresponding-author"><sup>✝</sup>Corresponding Author</div>
             </div>
-            <a href="#" target="_blank" class="button" style="text-decoration: none; margin-top: 50px;">Research Paper (comming soon)</a>
+            <a href="#" target="_blank" class="button">Research Paper (coming soon)</a>
         </header>
 
         <div class="media-grid">
@@ -717,7 +706,7 @@
                                 </div>
                                 <div class="scene-info">
                                     <div class="scene-title">Shot 14</div>
-                                    <div class="scene-description">find an abandon house</div>
+                                    <div class="scene-description">find an abandoned house</div>
                                 </div>
                             </div>
 
@@ -865,49 +854,48 @@
         </div>
 
         <p>
-            We propose Long Context Tuning (LCT) for scene-level video generation, to bridge the gap between current single-shot generation capability and real-world narrative video (e.g., movies) productions.
-            In this scenario, a scene is a series of single-shot videos capturing coherent events unfolding over time with semantic and temporal consistency.
+            We propose Long Context Tuning (LCT) for scene-level video generation to bridge the gap between current single-shot generation capabilities and real-world narrative video productions such as movies.
+            In this framework, a scene comprises a series of single-shot videos capturing coherent events that unfold over time with semantic and temporal consistency.
         </p>
         
 
         <div class="media-grid">
             <div class="media-item">
-                <img src="assets/archtecture-fig.png" style="width: 100%;">
+                <img src="assets/archtecture-fig.png" alt="Architecture diagram">
                 <div class="media-caption">Architecture Designs for Long Context Tuning.</div>
             </div>
         </div>
 
         <p>
-            We solve the problem with a data-driven apporach by directly learning scene-level consistency upon data, and we minimize architectural inductive bias that may compromise scability.
-            The core of our method is expanding the span of MMDiT's context window from single-shot to the entire scene.
-            This modification is compatible with MMDiT-based single-shot video diffusion models and introduce no additional parameters, thus can be viewed as an following training stage after single-shot video generation pre-training.
+            We address this challenge with a data-driven approach by directly learning scene-level consistency from data while minimizing architectural inductive bias that might compromise stability.
+            The core innovation of our method is expanding the scope of MMDiT's context window from a single shot to encompass the entire scene.
+            This modification is compatible with MMDiT-based single-shot video diffusion models and introduces no additional parameters, functioning as a subsequent training stage after single-shot video generation pre-training.
         </p>
 
         <p>
-            We employ an interleaved 3D Rotary Position Embedding (RoPE) to encode scene-level video order, as well as an asyncronized diffusion timestep strategy to unify visual conditioning and diffusion samples. We further explore a context-causal architecture that enable efficient auto-regressive shot generation with KV-cache.
-            Our experiments are conducted with an internal video model with 3B parameter scale.
-            See our <a href="#" target="_blank">Research Paper</a> for more details.
+            We employ an interleaved 3D Rotary Position Embedding (RoPE) to encode scene-level video order, along with an asynchronized diffusion timestep strategy to unify visual conditioning and diffusion samples. We further explore a context-causal architecture that enables efficient auto-regressive shot generation with KV-cache.
+            Our experiments are conducted with an internal video model at a 3B parameter scale.
+            For more technical details, please refer to our <a href="#" target="_blank">Research Paper</a>.
         </p>
 
         <p>
-            Notably, besides its superior scene-level video generation capability, we find Long Context Tuning enables several emerging model capability, including single-/multi-shot extension and compositional generation.
+            Notably, beyond its superior scene-level video generation capabilities, Long Context Tuning enables several emerging model abilities, including single/multi-shot extension and compositional generation.
         </p>
 
-        <!-- <div class="section-title">Interactive Multi-shot Extension</div> -->
         <div class="section-title">Interactively Direct a Multi-shot Story</div>
         
-        <p>Our model enables interactive multi-shot development. This facilitates an iterative production workflow where directors can progressively shape content shot-by-shot based on previously generated footage, eliminating the need for comprehensive upfront prompting and allowing for creative decision-making with immediate visual feedback.</p>
+        <p>Our model enables interactive multi-shot development, facilitating an iterative production workflow. Directors can progressively shape content shot-by-shot based on previously generated footage, eliminating the need for comprehensive upfront prompting and allowing creative decision-making with immediate visual feedback.</p>
 
         <div class="media-grid">
             <div class="media-item">
-                <img src="assets/multi-shot-extension-fig.png" style="width: 100%;">
+                <img src="assets/multi-shot-extension-fig.png" alt="Multi-shot development diagram">
                 <div class="media-caption">Interactive Multi-shot Development.</div>
             </div>
         </div>
 
         <p>
-            The above diagram present the progress of how we can extend a SoRA' single-shot video by providing text prompt interactively.
-            The complete video is presented as follow:
+            The diagram above illustrates how we can extend a SoRA single-shot video by interactively providing text prompts.
+            The complete video is presented below:
         </p>
 
         <div class="media-grid">
@@ -917,23 +905,24 @@
                         <iframe src="https://player.vimeo.com/video/1064596001?h=ee40b4bba4&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="multi-shot-extension"></iframe>
                     </div>
                 </div>
+                <div class="media-caption">Interactively directing a multi-shot story</div>
             </div>
         </div>
         
         <div class="section-title">Interactive Single-shot Extension</div>
 
-        <p>Our model enables interactive shot extension without shotcut. This approach can extend a single shot to minute-long durations, auto-regressively generating 10-second segments while maintaining visual consistency.</p>
+        <p>Our model also enables interactive shot extension without cuts. This approach can extend a single shot to minute-long durations by auto-regressively generating 10-second segments while maintaining visual consistency throughout.</p>
 
         <div class="media-grid">
             <div class="media-item">
-                <img src="assets/single-shot-extension-img.png" style="width: 100%;">
+                <img src="assets/single-shot-extension-img.png" alt="Single-shot extension diagram">
                 <div class="media-caption">Interactive Single-shot Extension.</div>
             </div>
         </div>
 
         <p>
-            The above diagram present the progress of how we can extend the story from an initial SoRA video by providing text prompt interactively.
-            The complete video is presented as follow:
+            The diagram above demonstrates how we can extend the narrative from an initial SoRA video by interactively providing text prompts.
+            The complete extended video is presented below:
         </p>
 
 
@@ -944,13 +933,14 @@
                         <iframe src="https://player.vimeo.com/video/1064595352?h=c427cef7f6&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="single-shot-extension"></iframe>
                     </div>
                 </div>
+                <div class="media-caption">Extending a single-shot video to minute-long duration</div>
             </div>
         </div>
         
-        <div class="section-title">Composable Generation</div>
+        <div class="section-title">Compositional Generation</div>
         <p>
-            Remarkably, despite no explicit training for this capability, our model enables composable generation by accepting separate identity and environment images to synthesize coherent videos integrating these distinct elements.
-            This ability emerges from the model's learned scene-level visual relations in the training corpus, where scenes frequently contain establishing environmental shots, character close-ups, and integrated shots depicting character-environment interactions.
+            Remarkably, despite no explicit training for this capability, our model enables compositional generation by accepting separate identity and environment images to synthesize coherent videos that integrate these distinct elements.
+            This ability emerges naturally from the model's learned scene-level visual relationships in the training corpus, where scenes typically contain establishing environmental shots, character close-ups, and integrated shots depicting character-environment interactions.
         </p>
 
         <div class="composable-layout">
@@ -975,19 +965,32 @@
                         <source src="assets/composable-generation-video.mp4" type="video/mp4">
                     </video>
                 </div>
+                <div class="media-caption">Composed Video</div>
             </div>
         </div>
 
         <p>
-            Similarly, we can continue the compositional generation by feeding another identity image in company with the history, to synthesize a video capturing a conversation between the two charcters.
-            The background is notably consistency with the history conditions.
+            Based on the above generation results, we can provide the model with another identity image along with the previous content to continue the generation chain.
+            The diagram below illustrates this process.
+        </p>
+
+        <div class="media-grid">
+            <div class="media-item">
+                <img src="assets/composable-fig.png" style="width: 70%;" alt="Compositional generation process">
+                <div class="media-caption">Compositional Generation Process</div>
+            </div>
+        </div>
+
+        <p>
+            Below are the additional identity image and the resulting video.
+            Note the exceptional scene consistency demonstrated throughout, particularly how the arrangement of paintings on the wall matches exactly with the initial environment image.
         </p>
 
         <div class="composable-layout">
             <div class="composable-inputs">
                 <div class="composable-input-item">
                     <div class="image-container">
-                        <img src="assets/composable-generation-id-2.jpg" alt="Environment image">
+                        <img src="assets/composable-generation-id-2.jpg" alt="Second identity image">
                     </div>
                     <div class="media-caption">History + Identity Image 2</div>
                 </div>
@@ -999,22 +1002,31 @@
                         <source src="assets/composable-generation-video-2.mp4" type="video/mp4">
                     </video>
                 </div>
+                <div class="media-caption">Composed Video</div>
             </div>
         </div>
 
         <div class="section-title">Visual Conditioning</div>
 
+        <p>
+            Our asynchronous training timestep strategy unifies conditional inputs and diffusion samples, enabling the use of arbitrary images or videos as additional visual conditions, as demonstrated in the previous sections.
+        </p>
+
+        <p>
+            In the example below, we illustrate a practical workflow enabled by our model: first designing the character, costume, and environment using external tools (such as <a href="https://huggingface.co/black-forest-labs/FLUX.1-dev" target="_blank">FLUX</a>), then integrating them into a video to achieve precise control over character appearance and scene composition.
+        </p>
+
         <div class="flex-column-grid">
             <div class="column" style="flex: 1">
                 <div class="image-container">
-                    <img src="assets/flux-id.jpg">
+                    <img src="assets/flux-id.jpg" alt="Character design">
                 </div>
                 <div class="media-caption">Character Design (<a href="https://civitai.com/images/24176751" target="_blank" style="text-decoration: underline;">source</a>)</div>
             </div>
             
             <div class="column" style="flex: 0.6857">
                 <div class="image-container">
-                    <img src="assets/flux-env.jpg">
+                    <img src="assets/flux-env.jpg" alt="Environment design">
                 </div>
                 <div class="media-caption">Environment Design (<a href="https://civitai.com/images/23386309" target="_blank" style="text-decoration: underline;">source</a>)</div>
             </div>
@@ -1030,31 +1042,33 @@
         </div>
 
 
-        <div class="section-title">Semantic Interpolation</div>
-        <p>
+        <div class="section-title">Controllable Scene Interpolation</div>
 
+        <p>
+            Our bidirectional model accepts visual conditions in arbitrary order and location, supporting "scene interpolation" applications.
+            As shown below, given the first and last shots, we can generate intermediate scenes with semantic coherence.
         </p>
 
         <div class="flex-column-grid">
             <div class="column">
                 <div class="image-container">
-                    <video muted playsinline controls>
+                    <video loop autoplay muted playsinline controls>
                         <source src="assets/interpolate-shot-1.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="media-caption">Shot 1</div>
+                <div class="media-caption">Shot 1 (source: <a href="https://www.imdb.com/title/tt6966692/" target="_blank">Green Book</a>)</div>
             </div>
             
             <div class="column">
                 <div class="image-container">
                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgdmlld0JveD0iMCAwIDE2MDAgOTAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij48cmVjdCB3aWR0aD0iMTYwMCIgaGVpZ2h0PSI5MDAiIGZpbGw9IiMzMzMzMzMiLz48dGV4dCB4PSI4MDAiIHk9IjQ4MCIgZm9udC1zaXplPSIyNTAiIGZvbnQtZmFtaWx5PSJPdXRmaXQsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM5OTk5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPj88L3RleHQ+PC9zdmc+" alt="Placeholder Image" style="width:100%; border-radius:8px; aspect-ratio: 16/9; object-fit: cover;">
                 </div>
-                <div class="media-caption">Shot 2 (unknow)</div>
+                <div class="media-caption">Shot 2 (unknown)</div>
             </div>
             
             <div class="column">
                 <div class="image-container">
-                    <video muted playsinline controls>
+                    <video loop autoplay muted playsinline controls>
                         <source src="assets/interpolate-shot-2.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1062,10 +1076,16 @@
             </div>
         </div>
 
+        <p>
+            Using our model, we generate two possible interpolation results shown below.
+            By providing specific text prompts, we can guide the interpolated narrative while maintaining visual and semantic coherence.
+            In the first example, Dr. Shirley is listening to music. In the second, Tony Lip is making a phone call.
+        </p>
+
         <div class="flex-column-grid">
             <div class="column">
                 <div class="image-container">
-                    <video muted playsinline controls>
+                    <video loop autoplay muted playsinline controls>
                         <source src="assets/interpolate-result-1.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1074,7 +1094,7 @@
             
             <div class="column">
                 <div class="image-container">
-                    <video muted playsinline controls>
+                    <video loop autoplay muted playsinline controls>
                         <source src="assets/interpolate-result-2.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1082,7 +1102,11 @@
             </div>
         </div>
 
-        <div class="section-title">Generalizablity</div>
+        <div class="section-title">Generalizability</div>
+
+        <p>
+            Finally, we demonstrate the versatility of our model. It excels not only in generating human-centric content (Example 1) but also in producing nature documentaries (Example 2), showcasing its broad applicability across diverse visual domains.
+        </p>
 
         <div class="media-grid">
             <div class="media-item">
@@ -1090,6 +1114,7 @@
                     <div style="padding:55.05% 0 0 0; position:relative;">
                         <iframe src="https://player.vimeo.com/video/1064595811?h=cd16bf3f15&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
                     </div>
+                    <div class="media-caption">Example 1: Two characters meet in a café and start a conversation</div>
                 </div>
             </div>
         </div>
@@ -1100,12 +1125,10 @@
                     <div style="padding:55.05% 0 0 0; position:relative;">
                         <iframe src="https://player.vimeo.com/video/1065386985?h=6959abc393&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
                     </div>
+                    <div class="media-caption">Example 2: An exploration through a beautiful coral reef</div>
                 </div>
             </div>
         </div>
-
-        <div class="section-title">Future Directions</div>
-
 
     </div>
 
@@ -1128,7 +1151,7 @@
                 videoDuration = duration;
                 updateTimeDisplay(0, videoDuration);
             }).catch(function(error) {
-                console.error('获取视频时长失败:', error);
+                console.error('Failed to get video duration:', error);
             });
             
             sceneItems.forEach(item => {
@@ -1137,7 +1160,7 @@
                     player.setCurrentTime(jumpTime).then(function() {
                         player.play();
                     }).catch(function(error) {
-                        console.error('设置播放时间失败:', error);
+                        console.error('Failed to set playback time:', error);
                     });
                     
                     sceneItems.forEach(scene => {
@@ -1177,7 +1200,7 @@
                 player.setCurrentTime(seekTime).then(function() {
                     player.play();
                 }).catch(function(error) {
-                    console.error('设置播放时间失败:', error);
+                    console.error('Failed to set playback time:', error);
                 });
             });
             
