@@ -85,6 +85,10 @@
         text-decoration: none;
     }
 
+    .author:visited {
+        color: #aaa;
+    }
+
     .corresponding-author {
         padding-top: 0; 
         font-size: 16px;
@@ -226,6 +230,12 @@
         border-radius: 8px;
         overflow: hidden;
         background-color: #000;
+    }
+
+    .video-player-section video {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
     }
     
     .vimeo-embed {
@@ -556,17 +566,7 @@
                 <div class="image-container">
                     <div class="video-container">
                         <div class="video-player-section">
-                            <div class="vimeo-embed">
-                                <div style="padding:55.05% 0 0 0;position:relative;">
-                                    <iframe id="sceneVimeoPlayer" 
-                                            src="https://player.vimeo.com/video/1064594327?h=2c9e5753b2&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                                            frameborder="0" 
-                                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                                            style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                                            title="scene-level-video-generation">
-                                    </iframe>
-                                </div>
-                            </div>
+                            <video id="sceneVideoPlayer" loop autoplay muted playsinline controls preload="auto" src="https://seaweed.video/projects/long-context-tuning/assets/scene-level-video-generation.mp4" type="video/mp4"></video>
                         </div>
                         
                         <div class="scenes-list">
@@ -900,11 +900,7 @@
 
         <div class="media-grid">
             <div class="media-item">
-                <div class="vimeo-container">
-                    <div style="padding:55.05% 0 0 0; position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1064596001?h=ee40b4bba4&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="multi-shot-extension"></iframe>
-                    </div>
-                </div>
+                <video loop autoplay muted playsinline controls preload="none" src="https://seaweed.video/projects/long-context-tuning/assets/multi-shot-extension.mp4" type="video/mp4"></video>
                 <div class="media-caption">Interactively directing a multi-shot story</div>
             </div>
         </div>
@@ -928,11 +924,7 @@
 
         <div class="media-grid">
             <div class="media-item">
-                <div class="vimeo-container">
-                    <div style="padding:55.05% 0 0 0; position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1064595352?h=c427cef7f6&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="single-shot-extension"></iframe>
-                    </div>
-                </div>
+                <video loop autoplay muted playsinline controls preload="none" src="https://seaweed.video/projects/long-context-tuning/assets/single-shot-extension.mp4" type="video/mp4"></video>
                 <div class="media-caption">Extending a single-shot video to minute-long duration</div>
             </div>
         </div>
@@ -1110,34 +1102,23 @@
 
         <div class="media-grid">
             <div class="media-item">
-                <div class="vimeo-container">
-                    <div style="padding:55.05% 0 0 0; position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1064595811?h=cd16bf3f15&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
-                    </div>
-                    <div class="media-caption">Example 1: Two characters meet in a café and start a conversation</div>
-                </div>
+                <video loop autoplay muted playsinline controls preload="none" src="https://seaweed.video/projects/long-context-tuning/assets/scene-1.mp4" type="video/mp4"></video>
+                <div class="media-caption">Example 1: Two characters meet in a café and start a conversation</div>
             </div>
         </div>
 
         <div class="media-grid">
             <div class="media-item">
-                <div class="vimeo-container">
-                    <div style="padding:55.05% 0 0 0; position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1065386985?h=6959abc393&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
-                    </div>
-                    <div class="media-caption">Example 2: An exploration through a beautiful coral reef</div>
-                </div>
+                <video loop autoplay muted playsinline controls preload="none" src="https://seaweed.video/projects/long-context-tuning/assets/scene-2.mp4" type="video/mp4"></video>
+                <div class="media-caption">Example 2: An exploration through a beautiful coral reef</div>
             </div>
         </div>
 
     </div>
-
-    <script src="https://player.vimeo.com/api/player.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.getElementById('sceneVimeoPlayer');
-            const player = new Vimeo.Player(iframe);
+            const videoPlayer = document.getElementById('sceneVideoPlayer');
             
             const videoProgress = document.querySelector('.video-progress');
             const videoTimeline = document.querySelector('.video-timeline');
@@ -1145,30 +1126,29 @@
             const sceneItems = document.querySelectorAll('.scene-item');
             const scenesList = document.querySelector('.scenes-list');
             
-            let videoDuration = 60;
+            let videoDuration = 0;
             
-            player.getDuration().then(function(duration) {
-                videoDuration = duration;
+            // Get video duration once metadata is loaded
+            videoPlayer.addEventListener('loadedmetadata', function() {
+                videoDuration = videoPlayer.duration;
                 updateTimeDisplay(0, videoDuration);
-            }).catch(function(error) {
-                console.error('Failed to get video duration:', error);
             });
             
+            // Handle scene item clicks to jump to specific timestamps
             sceneItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const jumpTime = parseFloat(this.getAttribute('data-time'));
-                    player.setCurrentTime(jumpTime).then(function() {
-                        player.play();
-                    }).catch(function(error) {
-                        console.error('Failed to set playback time:', error);
-                    });
+                    videoPlayer.currentTime = jumpTime;
+                    videoPlayer.play();
                     
+                    // Update active scene
                     sceneItems.forEach(scene => {
                         scene.classList.remove('active');
                     });
                     
                     this.classList.add('active');
 
+                    // Scroll to make sure active scene is visible
                     const itemRect = this.getBoundingClientRect();
                     const listRect = scenesList.getBoundingClientRect();
                     
@@ -1182,8 +1162,9 @@
                 });
             });
             
-            player.on('timeupdate', function(data) {
-                const currentTime = data.seconds;
+            // Update progress bar and time display as video plays
+            videoPlayer.addEventListener('timeupdate', function() {
+                const currentTime = videoPlayer.currentTime;
                 const progressPercent = (currentTime / videoDuration) * 100;
                 
                 videoProgress.style.width = `${progressPercent}%`;
@@ -1192,28 +1173,29 @@
                 updateActiveScene(currentTime);
             });
             
+            // Handle timeline clicks to seek video
             videoTimeline.addEventListener('click', function(e) {
                 const rect = this.getBoundingClientRect();
                 const position = (e.clientX - rect.left) / rect.width;
                 const seekTime = position * videoDuration;
                 
-                player.setCurrentTime(seekTime).then(function() {
-                    player.play();
-                }).catch(function(error) {
-                    console.error('Failed to set playback time:', error);
-                });
+                videoPlayer.currentTime = seekTime;
+                videoPlayer.play();
             });
             
+            // Format time display
             function formatTime(seconds) {
                 const minutes = Math.floor(seconds / 60);
                 const remainingSeconds = Math.floor(seconds % 60);
                 return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
             }
             
+            // Update time display
             function updateTimeDisplay(currentTime, duration) {
                 videoTime.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
             }
             
+            // Update active scene based on current playback time
             function updateActiveScene(currentTime) {
                 let activeSceneFound = false;
                 
@@ -1227,6 +1209,7 @@
                         item.classList.add('active');
                         activeSceneFound = true;
                         
+                        // Auto-scroll scenes list to keep active scene visible
                         const itemRect = item.getBoundingClientRect();
                         const listRect = scenesList.getBoundingClientRect();
                         
@@ -1242,6 +1225,7 @@
                     }
                 });
                 
+                // Default to first scene if none found active
                 if (!activeSceneFound && sceneItems.length > 0) {
                     sceneItems[0].classList.add('active');
                 }
