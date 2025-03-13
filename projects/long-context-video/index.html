@@ -61,17 +61,27 @@
         color: #aaa;
         padding: 20px 6px 0;
         text-align: center;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+
+    .author-a {
+        font-size: 18px;
+        color: #aaa;
+        padding: 20px 6px 0;
+        text-align: center;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+
+    .author-a:hover {
+        color: #444;
     }
 
     a {
-        text-decoration: none;
-        /* color: #aaa; */
+        color: #ddd;
     }
-    
-    a:hover {
-        text-decoration: underline;
-    }
-         
+
     .button {
         display: inline-block;
         background-color: rgba(255, 255, 255, 0.1);
@@ -83,7 +93,12 @@
         margin-bottom: 30px;
         transition: background-color 0.3s;
     }
-    
+
+    .button:hover {
+        color: #fff;
+        background-color: #444;
+    }
+
     h1 {
         /* font-size: 36px; */
         font-size: 50px;
@@ -156,11 +171,59 @@
     .media-caption {
         margin-top: 8px;
         font-size: 16px;
-        color: #aaa;
+        color: #ddd;
         text-align: center;
         width: 100%;
     }
     
+    .flex-column-grid {
+        display: flex;
+        gap: 20px;
+        margin: 40px 0;
+        width: 100%;
+    }
+
+    .column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column .image-container {
+        width: 100%;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #0f1112;
+    }
+
+    .column video, 
+    .column img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .column .media-caption {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* 针对响应式布局的修改 */
+    @media (max-width: 768px) {
+        .flex-column-grid {
+            flex-direction: column;
+        }
+        
+        .column {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
     .section-title {
         font-size: 28px;
         margin: 100px 0 30px;
@@ -344,7 +407,7 @@
     }
     
     .composable-inputs {
-        width: 25%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -374,7 +437,7 @@
     }
 
     .composable-output {
-        width: 75%;
+        width: 70%;
     }
     
     .composable-output .image-container {
@@ -480,14 +543,14 @@
             <h1>Long Context Tuning for Video Generation</h1>
             <div style="margin-top: 20px;">
                 <div>
-                    <a class="author" href="https://guoyww.github.io/" target="_blank" rel="noopener noreferrer">Yuwei Guo<sup>1,2</sup></a>
-                    <a class="author" href="https://ceyuan.me/" target="_blank" rel="noopener noreferrer">Ceyuan Yang<sup>2,✝</sup></a>
-                    <a class="author" href="https://ziyanyang.github.io/" target="_blank" rel="noopener noreferrer">Ziyan Yang<sup>2</sup></a>
-                    <a class="author" href="https://www.linkedin.com/in/zhibei-ma-30385bb8/" target="_blank" rel="noopener noreferrer">Zhibei Ma<sup>2</sup></a>
-                    <a class="author" href="https://scholar.google.com/citations?user=xXMj6_EAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Zhijie Lin<sup>2</sup></a>
-                    <a class="author" href="https://zhenheny.github.io/" target="_blank" rel="noopener noreferrer">Zhenheng Yang<sup>3</sup></a>
-                    <a class="author" href="http://dahua.site/" target="_blank" rel="noopener noreferrer">Dahua Lin<sup>1</sup></a>
-                    <a class="author" href="http://www.lujiang.info/" target="_blank" rel="noopener noreferrer">Lu Jiang<sup>2</sup></a>
+                    <a class="author-a" href="https://guoyww.github.io/" target="_blank" rel="noopener noreferrer">Yuwei Guo<sup>1,2</sup></a>
+                    <a class="author-a" href="https://ceyuan.me/" target="_blank" rel="noopener noreferrer">Ceyuan Yang<sup>2,✝</sup></a>
+                    <a class="author-a" href="https://ziyanyang.github.io/" target="_blank" rel="noopener noreferrer">Ziyan Yang<sup>2</sup></a>
+                    <a class="author-a" href="https://www.linkedin.com/in/zhibei-ma-30385bb8/" target="_blank" rel="noopener noreferrer">Zhibei Ma<sup>2</sup></a>
+                    <a class="author-a" href="https://scholar.google.com/citations?user=xXMj6_EAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Zhijie Lin<sup>2</sup></a>
+                    <a class="author-a" href="https://zhenheny.github.io/" target="_blank" rel="noopener noreferrer">Zhenheng Yang<sup>3</sup></a>
+                    <a class="author-a" href="http://dahua.site/" target="_blank" rel="noopener noreferrer">Dahua Lin<sup>1</sup></a>
+                    <a class="author-a" href="http://www.lujiang.info/" target="_blank" rel="noopener noreferrer">Lu Jiang<sup>2</sup></a>
                 </div>
                 <div>
                     <span class="author" style="padding-top: 0"><sup>1</sup>The Chinese University of Hong Kong</span>
@@ -496,7 +559,7 @@
                 </div>
                 <div class="author" style="padding-top: 0; font-size: 16px;"><sup>✝</sup>Corresponding Author</div>
             </div>
-            <a href="#" class="button" style="margin-top: 50px;">Research Paper (comming soon)</a>
+            <a href="#" target="_blank" class="button" style="text-decoration: none; margin-top: 50px;">Research Paper (comming soon)</a>
         </header>
 
         <div class="media-grid">
@@ -823,7 +886,7 @@
         <p>
             We employ an interleaved 3D Rotary Position Embedding (RoPE) to encode scene-level video order, as well as an asyncronized diffusion timestep strategy to unify visual conditioning and diffusion samples. We further explore a context-causal architecture that enable efficient auto-regressive shot generation with KV-cache.
             Our experiments are conducted with an internal video model with 3B parameter scale.
-            See our <a href="#" style="text-decoration: underline; color: #ddd;">Research Paper</a> for more details.
+            See our <a href="#" target="_blank">Research Paper</a> for more details.
         </p>
 
         <p>
@@ -908,7 +971,7 @@
             
             <div class="composable-output">
                 <div class="image-container">
-                    <video muted playsinline controls>
+                    <video loop autoplay muted playsinline controls>
                         <source src="assets/composable-generation-video.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -932,14 +995,94 @@
             
             <div class="composable-output">
                 <div class="image-container">
-                    <video muted playsinline controls>
+                    <video loop autoplay muted playsinline controls>
                         <source src="assets/composable-generation-video-2.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
         </div>
 
-        <div class="section-title">More Results</div>
+        <div class="section-title">Visual Conditioning</div>
+
+        <div class="flex-column-grid">
+            <div class="column" style="flex: 1">
+                <div class="image-container">
+                    <img src="assets/flux-id.jpg">
+                </div>
+                <div class="media-caption">Character Design (<a href="https://civitai.com/images/24176751" target="_blank" style="text-decoration: underline;">source</a>)</div>
+            </div>
+            
+            <div class="column" style="flex: 0.6857">
+                <div class="image-container">
+                    <img src="assets/flux-env.jpg">
+                </div>
+                <div class="media-caption">Environment Design (<a href="https://civitai.com/images/23386309" target="_blank" style="text-decoration: underline;">source</a>)</div>
+            </div>
+            
+            <div class="column" style="flex: 1.8182">
+                <div class="image-container">
+                    <video loop autoplay muted playsinline controls>
+                        <source src="assets/composable-flux-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-caption">Composed Video</div>
+            </div>
+        </div>
+
+
+        <div class="section-title">Semantic Interpolation</div>
+        <p>
+
+        </p>
+
+        <div class="flex-column-grid">
+            <div class="column">
+                <div class="image-container">
+                    <video muted playsinline controls>
+                        <source src="assets/interpolate-shot-1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-caption">Shot 1</div>
+            </div>
+            
+            <div class="column">
+                <div class="image-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgdmlld0JveD0iMCAwIDE2MDAgOTAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij48cmVjdCB3aWR0aD0iMTYwMCIgaGVpZ2h0PSI5MDAiIGZpbGw9IiMzMzMzMzMiLz48dGV4dCB4PSI4MDAiIHk9IjQ4MCIgZm9udC1zaXplPSIyNTAiIGZvbnQtZmFtaWx5PSJPdXRmaXQsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM5OTk5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPj88L3RleHQ+PC9zdmc+" alt="Placeholder Image" style="width:100%; border-radius:8px; aspect-ratio: 16/9; object-fit: cover;">
+                </div>
+                <div class="media-caption">Shot 2 (unknow)</div>
+            </div>
+            
+            <div class="column">
+                <div class="image-container">
+                    <video muted playsinline controls>
+                        <source src="assets/interpolate-shot-2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-caption">Shot 3</div>
+            </div>
+        </div>
+
+        <div class="flex-column-grid">
+            <div class="column">
+                <div class="image-container">
+                    <video muted playsinline controls>
+                        <source src="assets/interpolate-result-1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-caption">Possible Interpolation 1</div>
+            </div>
+            
+            <div class="column">
+                <div class="image-container">
+                    <video muted playsinline controls>
+                        <source src="assets/interpolate-result-2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-caption">Possible Interpolation 2</div>
+            </div>
+        </div>
+
+        <div class="section-title">Generalizablity</div>
 
         <div class="media-grid">
             <div class="media-item">
@@ -950,6 +1093,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="media-grid">
+            <div class="media-item">
+                <div class="vimeo-container">
+                    <div style="padding:55.05% 0 0 0; position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1065386985?h=6959abc393&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="more-results"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Future Directions</div>
+
+
     </div>
 
     <script src="https://player.vimeo.com/api/player.js"></script>
