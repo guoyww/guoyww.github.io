@@ -265,7 +265,7 @@ I am always open to research collaboration & internship opportunities. Feel free
 - **2023.11**&nbsp; Invited talk at Kunlun 2050 Research
 
 # Reviewer
-- **2025**&nbsp; ICML
+- **2025**&nbsp; CVPR, SIGGRAPH, ICML, ICCV, NeurIPS
 - **2024**&nbsp; SIGGRAPH, ACM MM, SIGGRAPH Asia, NeurIPS, ICLR, CVPR
 
 # Teaching
