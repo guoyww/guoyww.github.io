@@ -40,6 +40,97 @@ I am always open to research collaboration & internship opportunities. Feel free
 *:equal contribution; †: corresponding author
 
 
+<!-- LCT -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/long-context-video.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**Long Context Tuning for Video Generation**
+
+**Yuwei Guo**,
+[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
+[Ziyan Yang](https://ziyanyang.github.io/),
+[Zhibei Ma](https://www.linkedin.com/in/zhibei-ma-30385bb8/),
+[Zhijie Lin](https://scholar.google.com/citations?user=xXMj6_EAAAAJ&hl=en),
+[Zhenheng Yang](https://zhenheny.github.io/),
+[Dahua Lin](http://dahua.site/),
+[Lu Jiang](http://www.lujiang.info/)
+
+[**[Paper (coming soon)]**]()&nbsp;
+[**[Project]**](https://guoyww.github.io/projects/long-context-video/)&nbsp;
+</div>
+</div>
+<!-- LCT -->
+
+
+<!-- Repainter -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2025</div><img src='images/papers/video-repainter.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**VideoRepainter: Keyframe-Guided Creative Video Inpainting**
+
+**Yuwei Guo**,
+[Ceyuan Yang](https://ceyuan.me),
+[Anyi Rao](https://anyirao.com),
+[Chenlin Meng](https://cs.stanford.edu/~chenlin/),
+[Omer Bar-Tal](https://omerbt.github.io/),
+[Shuangrui Ding](https://mark12ding.github.io/), \\
+[Maneesh Agrawala](http://graphics.stanford.edu/~maneesh/),
+[Dahua Lin](http://dahua.site/),
+[Bo Dai](https://daibo.info) 
+
+[**[Paper (coming soon)]**]()&nbsp;
+[**[Project (coming soon)]**]()&nbsp;
+[**[Code (coming soon)]**]()
+</div>
+</div>
+<!-- Repainter -->
+
+
+<!-- SparseCtrl -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2024</div><img src='images/papers/sparsectrl.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models**
+
+**Yuwei Guo**,
+[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
+[Anyi Rao](https://anyirao.com),
+[Maneesh Agrawala](http://graphics.stanford.edu/~maneesh/),
+[Dahua Lin](http://dahua.site/),
+[Bo Dai](https://daibo.info) 
+
+[**[Paper]**](https://arxiv.org/abs/2311.16933)&nbsp;
+[**[Project]**](projects/SparseCtrl/)&nbsp;
+[**[Code]**](https://github.com/guoyww/AnimateDiff#202312-animatediff-v3-and-sparsectrl)
+</div>
+</div>
+<!-- SparseCtrl -->
+
+
+<!-- AnimateDiff -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 (spotlight)</div><img src='images/papers/animatediff.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**AnimateDiff: Animate Your Personalized Text-to-Image Models without Specific Tuning**
+
+**Yuwei Guo**,
+[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
+[Anyi Rao](https://anyirao.com),
+[Zhengyang Liang](https://maxleung99.github.io),
+[Yaohui Wang](https://wyhsirius.github.io), \\
+[Yu Qiao](https://scholar.google.com/citations?user=gFtI-8QAAAAJ&hl=en),
+[Maneesh Agrawala](http://graphics.stanford.edu/~maneesh/),
+[Dahua Lin](http://dahua.site/),
+[Bo Dai](https://daibo.info) 
+
+[**[Paper]**](https://arxiv.org/abs/2307.04725)&nbsp;
+[**[Project]**](https://animatediff.github.io/)&nbsp;
+[**[Code (10k+ stars)]**](https://github.com/guoyww/AnimateDiff)
+</div>
+</div>
+<!-- AnimateDiff -->
+
+
 <!-- Imagine360 -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/imagine360.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -134,51 +225,6 @@ I am always open to research collaboration & internship opportunities. Feel free
 <!-- HumanVid -->
 
 
-<!-- SparseCtrl -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2024</div><img src='images/papers/sparsectrl.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-**SparseCtrl: Adding Sparse Controls to Text-to-Video Diffusion Models**
-
-**Yuwei Guo**,
-[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
-[Anyi Rao](https://anyirao.com),
-[Maneesh Agrawala](http://graphics.stanford.edu/~maneesh/),
-[Dahua Lin](http://dahua.site/),
-[Bo Dai](https://daibo.info) 
-
-[**[Paper]**](https://arxiv.org/abs/2311.16933)&nbsp;
-[**[Project]**](projects/SparseCtrl/)&nbsp;
-[**[Code]**](https://github.com/guoyww/AnimateDiff#202312-animatediff-v3-and-sparsectrl)
-</div>
-</div>
-<!-- SparseCtrl -->
-
-
-<!-- AnimateDiff -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 (spotlight)</div><img src='images/papers/animatediff.gif' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-**AnimateDiff: Animate Your Personalized Text-to-Image Models without Specific Tuning**
-
-**Yuwei Guo**,
-[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
-[Anyi Rao](https://anyirao.com),
-[Zhengyang Liang](https://maxleung99.github.io),
-[Yaohui Wang](https://wyhsirius.github.io),
-[Yu Qiao](https://scholar.google.com/citations?user=gFtI-8QAAAAJ&hl=en),
-[Maneesh Agrawala](http://graphics.stanford.edu/~maneesh/),
-[Dahua Lin](http://dahua.site/),
-[Bo Dai](https://daibo.info) 
-
-[**[Paper]**](https://arxiv.org/abs/2307.04725)&nbsp;
-[**[Project]**](https://animatediff.github.io/)&nbsp;
-[**[Code (10k+ stars)]**](https://github.com/guoyww/AnimateDiff)
-</div>
-</div>
-<!-- AnimateDiff -->
-
-
 <!-- Dynamic Storyboard -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">SIGGRAPH Poster</div><img src='images/papers/sig23vds.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -201,6 +247,9 @@ I am always open to research collaboration & internship opportunities. Feel free
 <!-- Dynamic Storyboard -->
 
 # Experiences
+- **Research Intern**, ByteDance Seed, Shanghai, China (2024.12 - present)  
+  with [Ceyuan Yang](https://ceyuan.me)
+
 - **Research Intern**, Pika Labs, Palo Alto, USA (2024.06 - 2024.08)  
   with [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Omer Bar-Tal](https://omerbt.github.io)
 
