@@ -55,7 +55,7 @@ I am always open to research collaboration & internship opportunities. Feel free
 [Dahua Lin](http://dahua.site/),
 [Lu Jiang](http://www.lujiang.info/)
 
-[**[Paper (coming soon)]**]()&nbsp;
+[**[Paper]**](https://arxiv.org/pdf/2503.10589)&nbsp;
 [**[Project]**](https://guoyww.github.io/projects/long-context-video/)&nbsp;
 </div>
 </div>
@@ -78,9 +78,9 @@ I am always open to research collaboration & internship opportunities. Feel free
 [Dahua Lin](http://dahua.site/),
 [Bo Dai](https://daibo.info) 
 
-[**[Paper (coming soon)]**]()&nbsp;
-[**[Project (coming soon)]**]()&nbsp;
-[**[Code (coming soon)]**]()
+**[Paper (coming soon)]**&nbsp;
+**[Project (coming soon)]**&nbsp;
+**[Code (coming soon)]**
 </div>
 </div>
 <!-- Repainter -->
