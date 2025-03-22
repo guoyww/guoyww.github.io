@@ -253,8 +253,8 @@ I am always open to research collaboration & internship opportunities. Feel free
 - **Research Intern**, Pika Labs, Palo Alto, USA (2024.06 - 2024.08)  
   with [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Omer Bar-Tal](https://omerbt.github.io)
 
-- **Research Intern**, Shanghai AI Laboratory, Shanghai, China (2022.10 - 2023.08)  
-  with [Ceyuan Yang](https://ceyuan.me), [Bo Dai](https://daibo.info), [Anyi Rao](https://anyirao.com)
+<!-- - **Research Intern**, Shanghai AI Laboratory, Shanghai, China (2022.10 - 2023.08)  
+  with [Ceyuan Yang](https://ceyuan.me), [Bo Dai](https://daibo.info), [Anyi Rao](https://anyirao.com) -->
 
 # Selected Awards
 - **2023.04**&nbsp; Hong Kong PhD Fellowship
