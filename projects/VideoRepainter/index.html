@@ -173,15 +173,15 @@
     <header>
         <h1>VideoRepainter: Keyframe-Guided Creative Video Inpainting</h1>
         <div class="authors">
-          <a href="#" class="author">Yuwei Guo</a>
-          <a href="#" class="author">Ceyuan Yang</a>
-          <a href="#" class="author">Anyi Rao</a>
-          <a href="#" class="author">Chenlin Meng</a>
-          <a href="#" class="author">Omer Bar-Tal</a>
-          <a href="#" class="author">Shuangrui Ding</a><br>
-          <a href="#" class="author">Maneesh Agrawala</a>
-          <a href="#" class="author">Dahua Lin</a>
-          <a href="#" class="author">Bo Dai</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://guoyww.github.io/">Yuwei Guo</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://ceyuan.me/">Ceyuan Yang</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://anyirao.com/">Anyi Rao</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://cs.stanford.edu/~chenlin/">Chenlin Meng</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://omerbt.github.io/">Omer Bar-Tal</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://mark12ding.github.io/">Shuangrui Ding</a><br>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://profiles.stanford.edu/maneesh-agrawala">Maneesh Agrawala</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://dahua.site/">Dahua Lin</a>
+          <a class="author" target="_blank" rel="noopener noreferrer" href="https://daibo.info/">Bo Dai</a>
         </div>
         <div class="button-group">
             <a href="#" class="button">
@@ -220,9 +220,9 @@
         
     <h2>Abstract</h2>
     <div class="abstract">
-        <p>We present the first method capable of photorealistically reconstructing a non-rigidly deforming scene using photos captured casually from mobile phones.</p>
-        <p>Our approach augments neural radiance fields (NeRF) by optimizing an additional continuous volumetric deformation field that maps each observed point into a canonical 3D NeRF. We observe that explicitly constraining these deformations to be locally rigid produces higher-quality results. We also regularize the deformation field with a novel elastic regularization that assists gradient-based optimization methods for coordinate-based models that often get stuck in local minima. By adapting principles from geometry processing and physical simulation to neural field-like models, we demonstrate the first approach capable of producing photorealistic free-viewpoint renderings of non-rigidly deforming scenes.</p>
-        <p>We show that Nerfies can turn casually captured selfie photos and videos into deformable NeRF models for photorealistic renderings of the subject from arbitrary viewing viewpoints, which we call "nerfies". We evaluate our method by collecting data using a rig with two mobile phones that take time-synchronized photos, yielding multiview images of the same pose at different viewpoints. We show that our method faithfully reconstructs non-rigidly deforming scenes and reproduces unseen views with high fidelity.</p>
+        <p>
+          Video inpainting, which aims to fill missing regions with visually coherent content, has emerged as a crucial technique for creative applications such as editing. While existing approaches achieve either visual consistency or text-guided generation, they often struggle to balance between coherence and creative diversity. In this work, we introduce VideoRepainter, a two-stage framework that first allows users to inpaint a keyframe using established image-level techniques, and then propagates the corresponding change to other frames. Our approach can leverage state-of-the-art image diffusion models for keyframe manipulation, thereby easing the burden of the video-inpainting process. To this end, we integrate an image-to-video model with a symmetric condition mechanism to address ambiguity caused by direct mask downsampling. We further explore efficient strategies for mask synthesis and parameter tuning to reduce costs in data processing and model training. Evaluations demonstrate our method achieves superior results in both visual fidelity and content diversity compared to existing approaches, providing a practical solution for creative video manipulation.
+        </p>
     </div>
     
     <h2>Video</h2>
