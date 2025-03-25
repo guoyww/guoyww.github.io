@@ -29,6 +29,7 @@
         
         h1 {
             font-size: 28px;
+            margin-top: 50px;
             margin-bottom: 10px;
             font-weight: normal;
         }
@@ -39,7 +40,7 @@
         }
 
         .author {
-          margin: 0 10px;
+          margin: 0 5px;
           color: #666;
           transition: color 0.3s;
           text-decoration: none;
@@ -58,12 +59,13 @@
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-bottom: 50px;
         }
         
         .button {
             background-color: #333;
+            transition: background-color 0.3s;
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
@@ -71,6 +73,10 @@
             font-size: 14px;
             display: inline-flex;
             align-items: center;
+        }
+
+        .button:hover {
+          background-color: #111;
         }
         
         .icon {
