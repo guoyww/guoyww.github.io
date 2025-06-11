@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VideoRepainter: Keyframe-Guided Creative Video Inpainting</title>
+    <title>Keyframe-Guided Creative Video Inpainting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
@@ -98,7 +98,7 @@
         .image-placeholder {
             background-color: #f0f0f0;
             width: 100%;
-            padding-top: 75%; /* 4:3 aspect ratio */
+            padding-top: 75%;
             position: relative;
             margin-bottom: 5px;
         }
@@ -107,13 +107,6 @@
             font-size: 14px;
             text-align: center;
             color: #666;
-        }
-
-        .example-image {
-            flex: 0 0 auto;
-            width: 200px;
-            height: 300px;
-            background-color: #f0f0f0;
         }
         
         h2 {
@@ -130,19 +123,104 @@
             line-height: 1.6;
         }
         
-        .video-container {
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        .video-carousel {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .video-slides-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 300%;
+        }
+
+        .video-slide {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            width: 33.333%;
+            flex-shrink: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .carousel-video-container {
+            flex: 1;
+            text-align: center;
+            background: none;
+            height: auto;
+            position: relative;
+        }
+
+        .carousel-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: middle;
+        }
+
+        .main-video-container {
+            width: 100%;
+            position: relative;
+        }
+
+        .main-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-placeholder {
             background-color: #f0f0f0;
+            width: 100%;
+            padding-top: 56.25%;
+            position: relative;
+        }
+
+        .carousel-caption {
+            font-size: 14px;
+            text-align: center;
+            color: #666;
+            margin: 5px 0 0 0;
+            padding: 0;
+            background: none;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .carousel-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-indicator:hover {
+            background-color: #999;
+            transform: scale(1.1);
+        }
+
+        .carousel-indicator.active {
+            background-color: #333;
+            transform: scale(1.2);
         }
         
         .section {
             display: flex;
-            gap: 10px;
-            margin-bottom: 40px;
+            gap: 5px;
+            margin-bottom: 10px;
+            position: relative;
+            min-height: 100px;
         }
         
         .section-content {
@@ -152,13 +230,25 @@
         
         .section-image {
             flex: 1;
-            background-color: #f0f0f0;
-            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
         }
         
-        /* Responsive styles */
+        .section-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .section-image .caption {
+            width: 100%;
+            margin-top: 5px;
+        }
+
         @media (max-width: 768px) {
-            .image-row, .section {
+            .video-slide, .image-row, .section {
                 flex-direction: column;
             }
             
@@ -171,13 +261,15 @@
                 width: 100%;
                 padding-right: 0;
                 margin-bottom: 20px;
+                justify-content: center;
             }
         }
     </style>
+
 </head>
 <body>
     <header>
-        <h1>VideoRepainter: Keyframe-Guided Creative Video Inpainting</h1>
+        <h1>Keyframe-Guided Creative Video Inpainting</h1>
         <div class="authors">
           <a class="author" target="_blank" rel="noopener noreferrer" href="https://guoyww.github.io/">Yuwei Guo</a>
           <a class="author" target="_blank" rel="noopener noreferrer" href="https://ceyuan.me/">Ceyuan Yang</a>
@@ -190,69 +282,452 @@
           <a class="author" target="_blank" rel="noopener noreferrer" href="https://daibo.info/">Bo Dai</a>
         </div>
         <div class="button-group">
-            <a href="#" class="button">
+            <a class="button" target="_blank" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Guo_Keyframe-Guided_Creative_Video_Inpainting_CVPR_2025_paper.pdf">
                 <span class="icon">
                     <i class="fas fa-file-pdf"></i>
                 </span>
                 Paper
             </a>
-            <a href="#" class="button">
+            <a class="button">
                 <span class="icon">
                     <i class="fab fa-github"></i>
                 </span>
-                Code
+                Code (coming soon)
             </a>
         </div>
     </header>
     
-    <div class="image-row">
-        <div class="image-container">
-            <div class="image-placeholder"></div>
-            <div class="caption">(a) Capture Process</div>
+    <div class="video-carousel">
+        <div class="video-slides-container">
+            <!-- 第一组视频 -->
+            <div class="video-slide">
+                <div class="carousel-video-container">
+                    <video width="100%" height="auto" autoplay loop muted playsinline>
+                        <source src="assets/results/1_input.mp4" type="video/mp4">
+                    </video>
+                    <div class="carousel-caption">(a.1) Original Video</div>
+                </div>
+                <div class="carousel-video-container">
+                    <video width="100%" height="auto" autoplay loop muted playsinline>
+                        <source src="assets/results/1.mp4" type="video/mp4">
+                    </video>
+                    <div class="carousel-caption">(a.2) Repainted Video</div>
+                </div>
+            </div>
+            
+            <!-- 第二组视频 -->
+            <div class="video-slide">
+                <div class="carousel-video-container">
+                    <video width="100%" height="auto" autoplay loop muted playsinline>
+                        <source src="assets/results/2_input.mp4" type="video/mp4">
+                    </video>
+                    <div class="carousel-caption">(b.1) Original Video</div>
+                </div>
+                <div class="carousel-video-container">
+                    <video width="100%" height="auto" autoplay loop muted playsinline>
+                        <source src="assets/results/2.mp4" type="video/mp4">
+                    </video>
+                    <div class="carousel-caption">(b.2) Repainted Video</div>
+                </div>
+            </div>
+            
+            <!-- 第三组视频 -->
+            <div class="video-slide">
+                <div class="carousel-video-container">
+                    <video width="100%" height="auto" autoplay loop muted playsinline>
+                        <source src="assets/results/5_input.mp4" type="video/mp4">
+                    </video>
+                    <div class="carousel-caption">(c.1) Original Video</div>
+                </div>
+                <div class="carousel-video-container">
+                    <video width="100%" height="auto" autoplay loop muted playsinline>
+                        <source src="assets/results/5.mp4" type="video/mp4">
+                    </video>
+                    <div class="carousel-caption">(c.2) Repainted Video</div>
+                </div>
+            </div>
         </div>
-        <div class="image-container">
-            <div class="image-placeholder"></div>
-            <div class="caption">(b) Input</div>
-        </div>
-        <div class="image-container">
-            <div class="image-placeholder"></div>
-            <div class="caption">(c) Nerfie</div>
+        
+        <!-- 轮播指示器 -->
+        <div class="carousel-indicators">
+            <div class="carousel-indicator active" data-index="0"></div>
+            <div class="carousel-indicator" data-index="1"></div>
+            <div class="carousel-indicator" data-index="2"></div>
         </div>
     </div>
     
     <div class="caption">
-        Nerfies turns selfie videos from your phone into free-viewpoint portraits.
+        VideoRepainter enables use cases such as (a) adding a sand-made "CVPR" to the beach (novel concept insertion), (b) changing a person's head into a balloon (object modification), and (c) altering the environment from beach to field (background replacement).
     </div>
         
     <h2>Abstract</h2>
     <div class="abstract">
         <p>
-          Video inpainting, which aims to fill missing regions with visually coherent content, has emerged as a crucial technique for creative applications such as editing. While existing approaches achieve either visual consistency or text-guided generation, they often struggle to balance between coherence and creative diversity. In this work, we introduce VideoRepainter, a two-stage framework that first allows users to inpaint a keyframe using established image-level techniques, and then propagates the corresponding change to other frames. Our approach can leverage state-of-the-art image diffusion models for keyframe manipulation, thereby easing the burden of the video-inpainting process. To this end, we integrate an image-to-video model with a symmetric condition mechanism to address ambiguity caused by direct mask downsampling. We further explore efficient strategies for mask synthesis and parameter tuning to reduce costs in data processing and model training. Evaluations demonstrate our method achieves superior results in both visual fidelity and content diversity compared to existing approaches, providing a practical solution for creative video manipulation.
+          Video inpainting, which aims to fill missing regions with visually coherent content, has emerged as a crucial technique for creative applications such as editing. While existing approaches achieve either visual consistency or text-guided generation, they often struggle to balance between coherence and creative diversity. In this work, we introduce VideoRepainter, a two-stage framework that <b>first allows users to inpaint a keyframe using established image-level techniques, and then propagates the corresponding change to other frames</b>. Our approach can leverage state-of-the-art image diffusion models for keyframe manipulation, thereby easing the burden of the video-inpainting process. To this end, we integrate an image-to-video model with a symmetric condition mechanism to address ambiguity caused by direct mask downsampling. We further explore efficient strategies for mask synthesis and parameter tuning to reduce costs in data processing and model training. Evaluations demonstrate our method achieves superior results in both visual fidelity and content diversity compared to existing approaches, providing a practical solution for creative video manipulation.
         </p>
     </div>
     
-    <h2>Video</h2>
-    <div class="video-container">
-        <!-- Video placeholder -->
-    </div>
-    
-    <h2>Visual Effects</h2>
-    <div class="section">
-        <div class="section-content">
-            <p>Using nerfies you can create fun visual effects. This body zoom effect would be impossible without nerfies since it would require going through a wall.</p>
+    <h2>Method</h2>
+    <div class="abstract">
+        <p>
+            We start with the observation that video inpainting can be formulated as a conditional generation task, where the model synthesizes content based on partially observed pixels. This formulation closely aligns with image-to-video (I2V) generation, where synthesis is conditioned on the initial frame. Given this structural similarity and shared underlying requirements, we opt to leverage pretrained I2V priors for video inpainting through efficient model repurposing, substantially reducing computational and data requirements compared to training from scratch.
+        </p>
+
+        <div style="text-align: center; margin-bottom: 25px;">
+            <img src="assets/i2v_repurpose.jpg" style="width: 90%;" class="main-video-container">
+            <div class="caption">
+                We efficiently repurpose I2V for video inpainting with our symmetric mask condition (introduced below) and LoRA finetuning.
+            </div>
         </div>
-        <div class="section-image"></div>
-        <div class="section-image"></div>
+
+        <p>
+            To address the mask ambiguity caused by the resolution downsampling in Latent Diffusion Model (LDM), we propose symmetric mask encoding. Our approach encodes two variants of the masked image through the VAE, one with black-filled mask regions and another with white-filled regions, and concatenates both encoded latents as UNet conditions. This enables precise pixel classification: identical values across variants indicate unmasked regions, while differences denote masked areas. Moreover, this design maintains compatibility with the VAE latent space and thus facilitates model repurposing.
+        </p>
     </div>
-    
-    <h2>Matting</h2>
-    <div class="section">
-        <div class="section-content">
-            <p>As a byproduct of our method, we can also solve the matting problem by querying samples that fall outside of a bounding box during rendering.</p>
+
+    <div style="text-align: center;">
+        <img src="assets/mask_condition.jpg" style="width: 90%;" class="main-video-container">
+        <div class="caption">
+            (a) Conventional inpainting approaches downsample masks to match VAE latent size, compromising fine-grained boundary details. (b) Our symmetric mask conditioning encodes dual variants of the masked image to preserve mask fidelity and resolve spatial ambiguity.
         </div>
-        <div class="section-image"></div>
-        <div class="section-image"></div>
+    </div>
+ 
+    <h2>More Results</h2>
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/3_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/3_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/3.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
     </div>
     
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/4_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/4_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/4.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/6_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/6_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/6.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/7_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/7_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/7.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/8_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/8_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/8.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/9_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/9_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/9.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/10_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/10_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/10.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-image">
+            <img src="assets/results/11_keyframe.jpg" alt="Keyframe Manipulation">
+            <div class="caption">
+                Keyframe Manipulation
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/11_input.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Original Video
+            </div>
+        </div>
+        <div class="section-image">
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+                <source src="assets/results/11.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                Repainted Video
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slidesContainer = document.querySelector('.video-slides-container');
+            const slides = document.querySelectorAll('.video-slide');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            const totalSlides = slides.length;
+            let currentIndex = 0;
+            let intervalId;
+            
+            function startAutoSlide() {
+                intervalId = setInterval(() => {
+                    showSlide((currentIndex + 1) % totalSlides);
+                }, 5000);
+            }
+            
+            function resetAutoSlide() {
+                clearInterval(intervalId);
+                startAutoSlide();
+            }
+            
+            function showSlide(index, animate = true) {
+                const translateValue = -(index * (100 / totalSlides));
+                
+                if (animate) {
+                    slidesContainer.style.transition = 'transform 0.5s ease';
+                } else {
+                    slidesContainer.style.transition = 'none';
+                }
+                
+                slidesContainer.style.transform = `translateX(${translateValue}%)`;
+                
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === index);
+                });
+                
+                pauseAllVideos();
+                
+                playCurrentSlideVideos(index);
+                
+                currentIndex = index;
+            }
+            
+            function pauseAllVideos() {
+                const allVideos = document.querySelectorAll('.video-carousel video');
+                allVideos.forEach(video => {
+                    video.pause();
+                });
+            }
+            
+            function playCurrentSlideVideos(index) {
+                const currentSlide = slides[index];
+                const currentVideos = currentSlide.querySelectorAll('video');
+                
+                currentVideos.forEach(video => {
+                    if (video.readyState >= 2) {
+                        video.play().catch(e => console.log("Video play failed:", e));
+                    } else {
+                        video.addEventListener('loadeddata', function playOnLoad() {
+                            video.play().catch(e => console.log("Video play failed:", e));
+                            video.removeEventListener('loadeddata', playOnLoad);
+                        });
+                    }
+                });
+            }
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    if (index !== currentIndex) {
+                        showSlide(index);
+                        resetAutoSlide();
+                    }
+                });
+            });
+            
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let isDragging = false;
+            
+            slidesContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                isDragging = true;
+                slidesContainer.style.transition = 'none';
+                clearInterval(intervalId);
+            }, {passive: true});
+            
+            slidesContainer.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                
+                const currentTouch = e.changedTouches[0].screenX;
+                const diff = currentTouch - touchStartX;
+                const movePercent = (diff / window.innerWidth) * 100;
+                
+                const baseTranslate = -(currentIndex * (100 / totalSlides));
+                const newTranslate = baseTranslate + movePercent / 3;
+                
+                if (newTranslate > 0 || newTranslate < -((totalSlides - 1) * (100 / totalSlides))) {
+                    return;
+                }
+                
+                slidesContainer.style.transform = `translateX(${newTranslate}%)`;
+            }, {passive: true});
+            
+            slidesContainer.addEventListener('touchend', (e) => {
+                isDragging = false;
+                touchEndX = e.changedTouches[0].screenX;
+                
+                slidesContainer.style.transition = 'transform 0.5s ease';
+                
+                handleSwipe();
+                
+                startAutoSlide();
+            }, {passive: true});
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    const newIndex = Math.min(currentIndex + 1, totalSlides - 1);
+                    showSlide(newIndex);
+                } else if (touchEndX > touchStartX + swipeThreshold) {
+                    const newIndex = Math.max(currentIndex - 1, 0);
+                    showSlide(newIndex);
+                } else {
+                    showSlide(currentIndex);
+                }
+            }
+            
+            slidesContainer.addEventListener('transitionend', function() {
+                playCurrentSlideVideos(currentIndex);
+            });
+            
+            showSlide(0, false);
+            
+            startAutoSlide();
+        });
+    </script>
 </body>
 </html>
