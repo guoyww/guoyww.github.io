@@ -78,8 +78,8 @@ I am always open to research collaboration & internship opportunities. Feel free
 [Dahua Lin](http://dahua.site/),
 [Bo Dai](https://daibo.info) 
 
-**[Paper (coming soon)]**&nbsp;
-**[Project (coming soon)]**&nbsp;
+**[Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Guo_Keyframe-Guided_Creative_Video_Inpainting_CVPR_2025_paper.pdf)**&nbsp;
+**[Project](https://guoyww.github.io/projects/VideoRepainter/)**&nbsp;
 **[Code (coming soon)]**
 </div>
 </div>
