@@ -27,6 +27,8 @@ I am always open to research collaboration & internship opportunities. Feel free
 
 
 # News
+- **2025.06**&nbsp; Three papers got accepted by ICCV 2025.
+- **2025.02**&nbsp; One paper got accepted by CVPR 2025.
 - **2024.08**&nbsp; We are organizing the Course on [Generative Models for Visual Content Editing and Creation](https://s2024.conference-program.org/presentation/?id=gensub_279&sess=sess166) at SIGGRAPH 2024.
 - **2024.07**&nbsp; SparseCtrl is accepted by ECCV 2024.
 - **2023.07**&nbsp; 🎉🎉 AnimateDiff is [online](https://github.com/guoyww/AnimateDiff).
@@ -41,7 +43,7 @@ I am always open to research collaboration & internship opportunities. Feel free
 
 
 <!-- LCT -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/long-context-video.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/papers/long-context-video.gif' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **Long Context Tuning for Video Generation**
@@ -154,7 +156,7 @@ I am always open to research collaboration & internship opportunities. Feel free
 
 
 <!-- SAM2Long -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/papers/sam2long.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/papers/sam2long.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree**
