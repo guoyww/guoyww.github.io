@@ -248,12 +248,12 @@ I am always open to research collaboration & internship opportunities. Feel free
 </div>
 <!-- Dynamic Storyboard -->
 
-# Experiences
+<!-- # Experiences
 - **Research Intern**, ByteDance Seed, Shanghai, China (2024.12 - present)  
   with [Ceyuan Yang](https://ceyuan.me)
 
 - **Research Intern**, Pika Labs, Palo Alto, USA (2024.06 - 2024.08)  
-  with [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Omer Bar-Tal](https://omerbt.github.io)
+  with [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Omer Bar-Tal](https://omerbt.github.io) -->
 
 <!-- - **Research Intern**, Shanghai AI Laboratory, Shanghai, China (2022.10 - 2023.08)  
   with [Ceyuan Yang](https://ceyuan.me), [Bo Dai](https://daibo.info), [Anyi Rao](https://anyirao.com) -->
