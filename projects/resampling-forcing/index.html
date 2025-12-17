@@ -109,7 +109,7 @@
             margin-top: 50px;
             margin-bottom: 20px;
             font-weight: 400;
-            line-height: 1.1;
+            line-height: 1.2;
             color: #111;
         }
 
@@ -722,23 +722,6 @@
         <p>
             Autoregressive video diffusion models hold promise for world simulation but are vulnerable to exposure bias arising from the train-test mismatch. While recent works address this via post- training, they typically rely on a bidirectional teacher model or online discriminator. In pursuit of an end-to-end solution, we introduce Resampling Forcing, a teacher-free paradigm that enables training autoregressive video models from scratch and at scale. Our key idea is a self-resampling scheme that simulates inference-time model-induced errors on history frames during training. Conditioned on these imperfect histories, a sparse causal mask enforces temporal causality and enables parallel training with frame-level diffusion loss. To support efficient long-horizon generation, we further introduce history routing, a parameter-free mechanism that dynamically selects the top-k most important history frames for each query. Experiments demonstrate that our approach matches the performance of distillation-based baselines while delivering superior temporal consistency on longer videos through native-length training.
         </p>
-<!-- 
-        <div class="section-title">Method</div>
-
-        <div class="clearfix">
-            <div class="float-right" style="width: 50%;">
-                <img src="assets/error.png" alt="Method overview" style="width: 100%; padding-left: 20px;">
-                <div class="media-caption">Overview of our proposed framework.</div>
-            </div>
-            
-            <p>
-                Our approach builds upon the observation that video generation can be decomposed into two key components: spatial content generation and temporal dynamics modeling. We design a unified framework that addresses both aspects through a carefully designed architecture that combines the strengths of image diffusion models with novel temporal modeling techniques.
-            </p>
-            
-            <p>
-                The core of our method is a self-resampling mechanism that enables end-to-end training for autoregressive video diffusion models. Unlike previous approaches that rely on teacher forcing, our method directly optimizes the model on its own generated outputs, significantly reducing the gap between training and inference.
-            </p>
-        </div> -->
 
         <div class="section-title">Method</div>
 
@@ -1125,7 +1108,6 @@
             </div>
         </div>
 
-        <!-- <div class="section-title">BibTeX</div> -->
         <div class="bibtex-container">
             <div class="bibtex-header">
                 <span class="bibtex-label">Citation</span>
@@ -1134,6 +1116,7 @@
                     <span id="copy-text">Copy</span>
                 </button>
             </div>
+            <div class="bibtex-code" id="bibtex-content">N/A</div>
             <!-- <div class="bibtex-code" id="bibtex-content">@inproceedings{author2025videogen,
                 title={Your Video Generation Paper Title},
                 author={Author, One and Author, Two and Author, Three and Author, Four},
