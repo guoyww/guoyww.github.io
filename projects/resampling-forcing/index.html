@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resampling Forcing</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=block" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=block" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-stretch: 100%;
+            font-display: block;
+            font-weight: 300 700;
+            src: url(https://cdn.seaweed-apt.com/assets/fonts/roboto.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        
+        .two-column {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            align-items: flex-start;
+        }
+
+        .two-column .column-text {
+            min-width: 0;
+        }
+
+        .two-column .column-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .two-column .column-image {
+            flex-shrink: 0;
+        }
+
+        .two-column .column-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .two-column .column-image .media-caption {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                flex-direction: column;
+            }
+            
+            .two-column .column-text,
+            .two-column .column-image {
+                width: 100% !important;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Outfit", sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #555;
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #555;
+        }
+
+        a:hover {
+            color: #000;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #444;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.1;
+            color: #111;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin: 80px 0 30px;
+            font-weight: 400;
+            color: #111;
+        }
+
+        .subsection-title {
+            font-size: 22px;
+            margin: 40px 0 20px;
+            font-weight: 500;
+            color: #222;
+        }
+
+        .cite {
+            color: #444;
+            text-decoration: none;
+            font-size: 0.75em;
+            vertical-align: super;
+            line-height: 0;
+        }
+
+        .cite:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 0 0;
+        }
+        
+        .author, .author-a {
+            font-size: 18px;
+            color: #666;
+            padding: 20px 6px 0;
+            text-align: center;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .author:visited, .author-a:visited {
+            color: #666;
+        }
+
+        .author-a:hover {
+            color: #000;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0 40px;
+            flex-wrap: wrap;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            color: #555;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid #999;
+            font-size: 16px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .button:visited {
+            color: #555;
+        }
+
+        .button:hover {
+            color: #333;
+            background-color: #f5f5f5;
+            border-color: #666;
+        }
+
+        .button .icon {
+            margin-right: 8px;
+        }
+
+        .hero-videos {
+            display: flex;
+            gap: 10px;
+            margin: 40px 0 15px;
+            justify-content: center;
+        }
+
+        .hero-video-container {
+            flex: 1 1 0;
+            min-width: 0;
+            text-align: center;
+        }
+
+        .hero-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            aspect-ratio: 832 / 480;
+            object-fit: cover;
+        }
+
+        .hero-video-caption {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .hero-video-caption.expanded {
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        .hero-main-caption {
+            font-size: 16px;
+            text-align: center;
+            color: #555;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        
+        .media-grid {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+            align-items: stretch;
+            flex-wrap: nowrap;
+        }
+        
+        .media-grid.wrap {
+            flex-wrap: wrap;
+        }
+        
+        .media-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .media-grid .media-item {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        
+        .media-grid > .media-item:only-child {
+            flex: 1 0 100%;
+            max-width: 100%;
+        }
+        
+        .image-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .media-item img, 
+        .media-item video {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .media-caption {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            width: 100%;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            aspect-ratio: 832 / 480;
+            object-fit: cover;
+        }
+
+        .result-caption {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            padding: 0 5px;
+            line-height: 1.4;
+            min-height: 2.8em;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .result-caption.expanded {
+            -webkit-line-clamp: unset;
+            overflow: visible;
+            min-height: auto;
+        }
+
+        .result-caption:hover {
+            color: #333;
+        }
+
+        .comparison-table th:not(:first-child) {
+            width: calc((100% - 70px) / 4);
+        }
+
+        .comparison-table th .prompt-text {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-table th .prompt-text.expanded {
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        .comparison-table th .prompt-text:hover {
+            color: #333;
+        }
+
+        .comparison-table-container {
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 4px;
+            text-align: center;
+            vertical-align: top;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            font-weight: 400;
+            font-size: 12px;
+            color: #555;
+            padding-bottom: 12px;
+            line-height: 1.4;
+            max-height: 4.2em;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .comparison-table th:first-child {
+            width: 90px;
+            font-style: normal;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 500;
+            font-size: 13px;
+            color: #333;
+            text-align: left;
+            vertical-align: middle;
+            width: 70px;
+        }
+
+        .comparison-table video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            aspect-ratio: 832 / 480;
+            object-fit: cover;
+        }
+
+        .reference-list {
+            margin: 30px 0;
+        }
+
+        .reference-item {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.1;
+            color: #444;
+        }
+
+        .reference-number {
+            color: #333;
+            margin-right: 5px;
+        }
+
+        .reference-title {
+            font-style: italic;
+        }
+
+        .bibtex-container {
+            margin: 80px 0 160px;
+        }
+
+        .bibtex-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .bibtex-label {
+            font-weight: 500;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .copy-button {
+            background: none;
+            border: 1px solid #ccc;
+            color: #555;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .copy-button:hover {
+            border-color: #999;
+            color: #333;
+        }
+
+        .copy-button.copied {
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .bibtex-code {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            font-family: 'Roboto Mono', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: #333;
+        }
+
+        .flex-column-grid {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .column .image-container {
+            width: 100%;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .column video, 
+        .column img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .column .media-caption {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px 5px;
+            }
+
+            .comparison-table th {
+                font-size: 11px;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin: 60px 0 20px;
+            }
+
+            .subsection-title {
+                font-size: 20px;
+                margin: 30px 0 15px;
+            }
+            
+            .author, .author-a {
+                font-size: 16px;
+            }
+            
+            .button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .hero-videos {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-video-container {
+                flex: 1 1 45%;
+                min-width: 250px;
+            }
+            
+            .media-grid {
+                flex-direction: column;
+            }
+            
+            .media-grid .media-item {
+                flex: 1 0 100%;
+                max-width: 100%;
+            }
+            
+            .flex-column-grid {
+                flex-direction: column;
+            }
+            
+            .column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .comparison-table th:first-child,
+            .comparison-table td:first-child {
+                width: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 26px;
+                margin-top: 30px;
+            }
+            
+            .author, .author-a {
+                padding: 15px 2px 0;
+                font-size: 14px;
+            }
+            
+            .button {
+                font-size: 13px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+                margin: 40px 0 15px;
+            }
+
+            .subsection-title {
+                font-size: 18px;
+            }
+            
+            .media-caption {
+                font-size: 14px;
+            }
+            
+            header {
+                padding: 60px 0 0;
+            }
+
+            .hero-video-container {
+                flex: 1 1 100%;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reference-item {
+                font-size: 14px;
+            }
+
+            .bibtex-code {
+                font-size: 11px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>End-to-End Training for Autoregressive Video<br>Diffusion via Self-Resampling</h1>
+            <div style="margin-top: 20px;">
+                <div>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Yuwei Guo<sup>1</sup></a>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Ceyuan Yang<sup>2,†</sup></a>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Hao He<sup>1</sup></a>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Yang Zhao<sup>2</sup></a>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Meng Wei<sup>3</sup></a>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Zhenheng Yang<sup>3</sup></a>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Weilin Huang<sup>2</sup></a>
+                    <a class="author-a" href="#" target="_blank" rel="noopener noreferrer">Dahua Lin<sup>1</sup></a>
+                </div>
+                <div>
+                    <span class="author"><sup>1</sup>The Chinese University of Hong Kong</span>
+                    <span class="author"><sup>2</sup>ByteDance Seed</span>
+                    <span class="author"><sup>3</sup>ByteDance</span>
+                </div>
+                <div class="author" style="padding-top: 5px; font-size: 16px;"><sup>†</sup>Corresponding Author</div>
+            </div>
+            <div class="button-group">
+                <a class="button" target="_blank" href="#">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    Research Paper
+                </a>
+            </div>
+        </header>
+
+        <!-- Hero Section: Three Videos Side by Side (832x480 landscape) -->
+        <div class="hero-videos">
+            <div class="hero-video-container">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/teaser-1.mp4" type="video/mp4">
+                </video>
+                <div class="hero-video-caption">(a) Teacher Forcing</div>
+            </div>
+            <div class="hero-video-container">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/teaser-2.mp4" type="video/mp4">
+                </video>
+                <div class="hero-video-caption">(b) Self-Forcing</div>
+            </div>
+            <div class="hero-video-container">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/teaser-3.mp4" type="video/mp4">
+                </video>
+                <div class="hero-video-caption">(c) Ours</div>
+            </div>
+        </div>
+        <div class="hero-main-caption">
+            (a) Teacher forcing training accumulates errors and leads to video collapse. (b) Distilled from a short bidirectional teacher, Self-Forcing<a href="#ref1" class="cite">1</a> suffers from the degraded quality on longer videos. (c) Our method supports native end-to-end training on long videos with stable quality.
+        </div>
+
+        <div class="section-title">Abstract</div>
+        <p>
+            Autoregressive video diffusion models hold promise for world simulation but are vulnerable to exposure bias arising from the train-test mismatch. While recent works address this via post- training, they typically rely on a bidirectional teacher model or online discriminator. In pursuit of an end-to-end solution, we introduce Resampling Forcing, a teacher-free paradigm that enables training autoregressive video models from scratch and at scale. Our key idea is a self-resampling scheme that simulates inference-time model-induced errors on history frames during training. Conditioned on these imperfect histories, a sparse causal mask enforces temporal causality and enables parallel training with frame-level diffusion loss. To support efficient long-horizon generation, we further introduce history routing, a parameter-free mechanism that dynamically selects the top-k most important history frames for each query. Experiments demonstrate that our approach matches the performance of distillation-based baselines while delivering superior temporal consistency on longer videos through native-length training.
+        </p>
+<!-- 
+        <div class="section-title">Method</div>
+
+        <div class="clearfix">
+            <div class="float-right" style="width: 50%;">
+                <img src="assets/error.png" alt="Method overview" style="width: 100%; padding-left: 20px;">
+                <div class="media-caption">Overview of our proposed framework.</div>
+            </div>
+            
+            <p>
+                Our approach builds upon the observation that video generation can be decomposed into two key components: spatial content generation and temporal dynamics modeling. We design a unified framework that addresses both aspects through a carefully designed architecture that combines the strengths of image diffusion models with novel temporal modeling techniques.
+            </p>
+            
+            <p>
+                The core of our method is a self-resampling mechanism that enables end-to-end training for autoregressive video diffusion models. Unlike previous approaches that rely on teacher forcing, our method directly optimizes the model on its own generated outputs, significantly reducing the gap between training and inference.
+            </p>
+        </div> -->
+
+        <div class="section-title">Method</div>
+
+        <div class="two-column">
+            <div class="column-text" style="width: 55%;">
+                <p>
+                    <b>Top:</b> Autoregressive video generation suffers from exposure bias due to the train-test mismatch: models are conditioned on ground-truth history during training (Teacher Forcing) but must rely on their own imperfect predictions during inference. This leads to error accumulation and cause the video to drift from the real distribution.
+                </p>
+                <p>
+                    <b>Buttom:</b> We propose to conditioning the model on self-generated, imperfect histories during training to stablize model error. This relaxes the model from strictly adhering to the input conditions and enables correction of input errors, thereby achieving stable long-horizon generation.
+                </p>
+            </div>
+            <div class="column-image"  style="width: 45%;">
+                <img src="assets/fig-error.png" alt="Method overview">
+                <div class="media-caption">Illustration of Error Accumulation.</div>
+            </div>
+        </div>
+
+        <div class="subsection-title">Error Simulation</div>
+        <p>
+            To mirror the inference-time error distribution, we propose a Self-Resampling mechanism. Rather than using clean ground-truth frames as conditions, we autoregressively resample the history frames using the online model weights.
+        </p>
+        <p>
+            Specifically, we perturb the ground-truth history to a sampled timestep and denoise it using the training model itself. This process generates a degraded history that encapsulates inference-time model error. Crucially, we apply a stop-gradient operation to the resampling process to prevent shortcut learning. This ensures the model is optimized solely to predict the clean target from degraded conditions, effectively learning to rectify accumulated errors and maintain temporal causality.
+        </p>
+
+        <div class="media-grid">
+            <div class="media-item" style="max-width: 90%; margin: 0 auto;">
+                <img src="assets/fig-resampling.png" alt="Method overview">
+                <div class="media-caption">Illustration of Resampling Forcing Training.</div>
+            </div>
+        </div> 
+
+        <div class="subsection-title">Sparse History Routing</div>
+        <div class="two-column">
+            <div class="column-text" style="width: 55%;">
+                <p>
+                    Modeling long-term dependencies in autoregressive generation presents a challenge: dense causal attention incurs linear memory growth, while sliding-window attention sacrifices global consistency. We address this trade-off with history routing, a parameter-free mechanism that dynamically selects the most informative context.
+                </p>
+                <p>
+                    For each query token in the current frame, a router retrieves only the top-k most relevant frames for attention computation. This mechanism reduces the attention complexity from linear to near-constant, enabling efficient scaling to long video sequences without quality degradation.
+                </p>
+            </div>
+            <div class="column-image" style="width: 40%;">
+                <img src="assets/fig-routing.png" alt="Method overview">
+                <div class="media-caption">Illustration of History Routing.</div>
+            </div>
+        </div>
+
+        <div class="section-title">More Results</div>
+        <p>
+            Below we showcase additional generation results across diverse prompts, demonstrating the versatility and quality of our approach. Click on any caption to expand the full prompt text.
+        </p>
+
+        <div class="results-grid">
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-1.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A child in a cozy winter outfit, blowing gently on a steaming mug of hot cocoa to cool it down. The child has rosy cheeks and warm mittens, with a look of anticipation and slight concentration on their face. They stand in a living room with a fireplace, the warm glow casting a soft, golden light on the scene. A few books and toys are scattered around, adding to the cozy atmosphere. The background shows a blurred view of a fireplace mantel with a wooden clock and some ornaments. The photo has a warm, homey feel. A close-up shot from a slightly lower angle."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-2.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A close-up shot of a bright blue parrot's shimmering feathers, capturing the unique and vibrant colors in the light. The parrot's feathers glisten with a metallic sheen, showcasing a mix of deep indigos, vivid greens, and rich blues. Its eyes sparkle with curiosity, and it appears lively and alert, perched on a branch. The background is blurred, highlighting the parrot against a soft, warm environment. The photo has a naturalistic and lifelike quality, emphasizing the bird's detailed plumage and natural movements."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-3.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A high-speed FPV (First Person View) shot inside the locomotive cab of a vintage European train, moving at hyper-speed through the bustling streets of an old European city. The cab is filled with intricate mechanical details, including dials, switches, and controls, with steam and smoke swirling around. The train's windows show blurred, colorful buildings and narrow cobblestone streets passing by quickly. The camera angle provides a dynamic, immersive view, capturing the intense motion and the rich architectural details of the cityscape. The overall style is detailed and realistic, emphasizing the speed and energy of the journey."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-4.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A miniature baby zebra, no bigger than a human thumb, is balancing on a fingertip, its legs slightly trembling as it tries to find its footing. It has a black and white striped coat, large round eyes, and a small tuft of fur on its head. Its ears are perked up, listening intently to its surroundings. The background is blurred, with only faint hints of a colorful, tropical landscape. The zebra's tiny hooves grip the fingertip firmly, showcasing the incredible dexterity of the miniature model. The photo has a detailed macro focus, capturing every strip and detail of the zebra's coat. A close-up shot from a low angle."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-5.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A close-up shot of a hand, fingers moving smoothly and precisely, spreading creamy butter onto a freshly sliced piece of bread. The sunlight filters through, casting gentle shadows and highlighting the golden-brown crust. The hand is well-defined, with nails neatly trimmed and a hint of warmth in the skin tone. The bread is artisanal, with visible grains and a slightly toasted texture. The scene has a warm and inviting feel, capturing the moment just before the butter is evenly distributed across the slice."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-6.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A realistic photograph capturing a woman taking a pleasant stroll in Johannesburg, South Africa, during a winter storm. She wears blue jeans and a white t-shirt, with her hair flowing gently in the wind. She walks confidently, arms swinging naturally at her sides, her face illuminated by the soft, diffused light of the storm. The background features a blurred cityscape with skyscrapers and trees, their branches swaying in the wind. The sky is overcast with dark clouds and light rain, creating a moody, atmospheric scene. A medium shot from a slightly elevated angle, emphasizing her determined and serene expression."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-7.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A vibrant tropical fish swimming gracefully among colorful coral reefs in a clear, turquoise ocean. The fish has bright blue and yellow scales with a small, distinctive orange spot on its side, its fins moving fluidly. The coral reefs are alive with a variety of marine life, including small schools of colorful fish and sea turtles gliding by. The water is crystal clear, allowing for a view of the sandy ocean floor below. The reef itself is adorned with a mix of hard and soft corals in shades of red, orange, and green. The photo captures the fish from a slightly elevated angle, emphasizing its lively movements and the vivid colors of its surroundings. A close-up shot with dynamic movement."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-8.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A nighttime scene from a vintage film-style photograph, depicting a giant, otherworldly creature slowly walking down a desolate, rundown city street. Only one dim streetlamp casts flickering shadows, illuminating the creature's massive, imposing form. Its skin is rough and covered in peculiar growths, with glowing eyes that reflect the dim light. The creature's steps echo in the empty alleyways, creating a sense of eerie quiet. The background features crumbling buildings, broken windows, and trash-strewn sidewalks. The photo has a grainy texture and a muted color palette, capturing the haunting atmosphere of the scene. A medium shot with a slight tilt to the camera, emphasizing the creature's movement and presence."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-9.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A dynamic tracking shot in the style of a thrilling action movie, capturing a car navigating a winding mountain road. The camera follows the car closely, showcasing the rugged terrain and scenic views. As the car twists and turns, the landscape changes dramatically, revealing lush green forests, steep cliffs, and distant peaks. The road winds through valleys and over rocky outcrops, creating a sense of adventure and excitement. The car's headlights illuminate the path ahead, casting shadows on the rugged landscape. The overall scene is rendered in a high-definition, cinematic style, emphasizing the movement and the breathtaking vistas."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-10.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A cinematic wide-angle portrait of a man with his face illuminated by the warm glow of a TV screen. The man, with a rugged yet determined expression, leans forward slightly against a vintage wooden armchair. His dark hair is slightly disheveled, and he wears a worn leather jacket over a plain white shirt. The background features a cluttered living room with old books, newspapers, and a few framed photos scattered around. The TV shows static, with a faint image of a news broadcast flickering in the corner. The overall scene has a nostalgic and gritty feel, with a rich color palette and a soft, grainy texture. A wide-angle shot capturing the man's intense gaze and the warm ambiance of the room."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-11.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A realistic photograph in a gritty urban style of a white and orange tabby alley cat dashing across a narrow back street alley during a heavy downpour. The cat is drenched, its fur matted and slick, and it looks determinedly for shelter. Its green eyes are wide and alert, focused intently on finding a safe place. The background is blurred, revealing a dimly lit alley with wet cobblestones and a few dilapidated buildings. The photo has a sharp focus on the cat, capturing its natural movements and the dynamic environment. A medium shot from a low angle, emphasizing the cat's urgency and the wet, urban setting."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-12.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A close-up shot of a woman in a noir-inspired style, with smoky lighting and a blurred background hinting at a dimly lit alley. She holds a cigarette between her fingers, her gaze fixed ahead with a slight hint of determination and resignation. Her hair, styled in loose waves, frames her face softly. She wears a black leather jacket over a red blouse, and her posture is relaxed yet somewhat tense. The cigarette smoke forms a gentle haze around her, adding to the atmospheric mood. Her expression is one of contemplation, with a subtle smile playing on her lips. A medium close-up from a slightly downward angle, capturing her facial expression and the cigarette in detail."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-13.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A sunset scene captured in a realistic photographic style, with the sun setting over a vast ocean. Golden sunlight scatters across the water surface, creating a glittering path that reflects the horizon. The sky is painted with hues of orange, pink, and purple, transitioning into deep blues as the sun dips below the waves. The water ripples gently, catching the light and creating a shimmering effect. The horizon is framed by tall cliffs with rugged, rocky formations, adding depth to the scene. A lone sailboat drifts on the water, its sails partially unfurled, creating a sense of tranquility and natural beauty. A wide-angle shot capturing the entire expanse of the ocean and sky."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-14.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A nighttime footage shot in a documentary style, capturing a hermit crab scuttling with determination, carrying an incandescent lightbulb as its new shell. The hermit crab has a small, rounded body with a hard, protective exoskeleton, and its eyes are large and black, reflecting the dim light. Its claws are strong and nimble, moving swiftly across the sandy ground. The background features a dark, moonlit beach with waves gently lapping against the shore, creating a serene and tranquil atmosphere. The lighting is soft and warm, highlighting the contrast between the hermit crab and its surroundings. The camera angle is slightly low, providing a close-up view of the crab’s movements."</div>
+            </div>
+            <div class="result-item">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="assets/gallery-15.mp4" type="video/mp4">
+                </video>
+                <div class="result-caption" onclick="this.classList.toggle('expanded')">"A dramatic photo in a gritty, realistic style of a middle-aged man standing in front of a partially collapsed, burning building. He gives a thumbs up sign, his face showing determination and resolve despite the danger. His weathered face and rugged, fire-resistant clothing suggest he is a firefighter or emergency responder. The background is a chaotic mix of flames, smoke, and debris, with emergency vehicles in the distance. The scene is captured from a low-angle perspective, emphasizing the man's bravery and the intensity of the situation."</div>
+            </div>
+        </div>
+
+        <div class="section-title">Baseline Comparison</div>
+        <p>
+            We compare our method against several representative autoregressive video generation works. Our method demonstrates superior visual quality and temporal causality across diverse prompts. Videos are resized to speed up webpage loading.
+        </p>
+        
+        <div class="comparison-table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><span class="prompt-text" onclick="this.classList.toggle('expanded')">"A full-body shot of a man crafted entirely from rocks, walking through a dense forest. His rocky form is rugged and textured, with various shades of gray and brown. He strides confidently, his steps creating small ripples in the forest floor."</span></th>
+                        <th><span class="prompt-text" onclick="this.classList.toggle('expanded')">"A close-up shot of someone carefully pouring milk into a cup, with the milk flowing smoothly and filling the cup with a milky white color. The person's hand is steady, guiding the milk into the cup with precision."</span></th>
+                        <th><span class="prompt-text" onclick="this.classList.toggle('expanded')">"A handheld tracking shot following a red balloon floating above the ground in an abandoned street. The balloon drifts gracefully, its bright red color contrasting sharply against the decaying urban backdrop."</span></th>
+                        <th><span class="prompt-text" onclick="this.classList.toggle('expanded')">"A single white sheep bending down to drink water from a calm river. The sheep has fluffy wool, long curved horns, and soft brown eyes. It is positioned near the riverbank."</span></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>NOVA<a href="#ref2" class="cite">2</a></td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/nova-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/nova-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/nova-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/nova-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pyramid Flow<a href="#ref3" class="cite">3</a></td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/pyramid-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/pyramid-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/pyramid-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/pyramid-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MAGI-1<a href="#ref4" class="cite">4</a></td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/magi-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/magi-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/magi-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/magi-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SkyReel-V2<a href="#ref5" class="cite">5</a></td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/skyreel-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/skyreel-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/skyreel-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/skyreel-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CausVid<a href="#ref6" class="cite">6</a></td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/causvid-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/causvid-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/causvid-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/causvid-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Self-Forcing<a href="#ref1" class="cite">1</a></td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/selfforcing-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/selfforcing-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/selfforcing-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/selfforcing-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LongLive<a href="#ref7" class="cite">7</a></td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/longlive-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/longlive-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/longlive-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/longlive-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ours</td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/ours-1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/ours-2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/ours-3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/ours-4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title">Related Work</div>
+
+        <div class="reference-list">
+            <div class="reference-item" id="ref1">
+                <span class="reference-number">1. </span>
+                Huang, Xun, et al. "Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion."
+            </div>
+            <div class="reference-item" id="ref2">
+                <span class="reference-number">2. </span>
+                Deng, Haoge, et al. "Autoregressive video generation without vector quantization."
+            </div>
+            <div class="reference-item" id="ref3">
+                <span class="reference-number">3. </span>
+                Jin, Yang, et al. "Pyramidal flow matching for efficient video generative modeling."
+            </div>
+            <div class="reference-item" id="ref4">
+                <span class="reference-number">4. </span>
+                Teng, Hansi, et al. "MAGI-1: Autoregressive Video Generation at Scale."
+            </div>
+            <div class="reference-item" id="ref4">
+                <span class="reference-number">5. </span>
+                Chen, Guibin, et al. "Skyreels-v2: Infinite-length film generative model."
+            </div>
+            <div class="reference-item" id="ref4">
+                <span class="reference-number">6. </span>
+                Yin, Tianwei, et al. "From slow bidirectional to fast autoregressive video diffusion models."
+            </div>
+            <div class="reference-item" id="ref4">
+                <span class="reference-number">7. </span>
+                Yang, Shuai, et al. "Longlive: Real-time interactive long video generation."
+            </div>
+        </div>
+
+        <!-- <div class="section-title">BibTeX</div> -->
+        <div class="bibtex-container">
+            <div class="bibtex-header">
+                <span class="bibtex-label">Citation</span>
+                <button class="copy-button" onclick="copyBibtex()">
+                    <i class="fas fa-copy"></i>
+                    <span id="copy-text">Copy</span>
+                </button>
+            </div>
+            <!-- <div class="bibtex-code" id="bibtex-content">@inproceedings{author2025videogen,
+                title={Your Video Generation Paper Title},
+                author={Author, One and Author, Two and Author, Three and Author, Four},
+                booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+                year={2025}
+            }</div> -->
+        </div>
+    </div>
+
+    <script>
+        function copyBibtex() {
+            const bibtexContent = document.getElementById('bibtex-content').innerText;
+            navigator.clipboard.writeText(bibtexContent).then(function() {
+                const button = document.querySelector('.copy-button');
+                const copyText = document.getElementById('copy-text');
+                
+                button.classList.add('copied');
+                copyText.textContent = 'Copied!';
+                
+                setTimeout(function() {
+                    button.classList.remove('copied');
+                    copyText.textContent = 'Copy';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                const textArea = document.createElement('textarea');
+                textArea.value = bibtexContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const button = document.querySelector('.copy-button');
+                const copyText = document.getElementById('copy-text');
+                button.classList.add('copied');
+                copyText.textContent = 'Copied!';
+                
+                setTimeout(function() {
+                    button.classList.remove('copied');
+                    copyText.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
