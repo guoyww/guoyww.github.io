@@ -17,9 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I am a second year Ph.D. student at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), advised by Prof. [Dahua Lin](http://dahua.site/).
+Hi, I am a third year Ph.D. at [Multimedia Laboratory (MMLAB)](https://mmlab.ie.cuhk.edu.hk/), [The Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html), advised by Prof. [Dahua Lin](http://dahua.site/).
 Prior to that, I received my Bachelor’s degree in the EE Department at [Nanjing University](https://www.nju.edu.cn/en/).
-My research interests focus on deep generative models for visual content creation.  
+My research interests focus on deep generative models for visual content creation.
 
 <!-- <font face="" style="color:#110000"> -->
 I am always open to research collaboration & internship opportunities. Feel free to <a href="mailto:guoyw.nju@gmail.com">drop me an email</a> if you are interested in working with me. :)
@@ -35,8 +35,8 @@ I am always open to research collaboration & internship opportunities. Feel free
 - **2023.06**&nbsp; We are organizing the [Third Workshop on AI for Creative Video Editing and Understanding (CVEU)](https://cveu.github.io/) at ICCV 2023.
 
 # Educations
-- **2023.08 - Present**&nbsp; Ph.D. in Information Engineering, The Chinese University of Hong Kong
-- **2019.09 - 2023.06**&nbsp; B.Sc. in Electronic Engineering, Nanjing University
+- **2023 - 2027 (expected)**&nbsp; Ph.D. in Information Engineering, The Chinese University of Hong Kong
+- **2019 - 2023**&nbsp; B.Sc. in Electronic Engineering, Nanjing University
 
 # Selected Works
 *:equal contribution; †: corresponding author
