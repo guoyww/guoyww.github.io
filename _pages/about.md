@@ -41,6 +41,26 @@ I am always open to research collaboration & internship opportunities. Feel free
 # Selected Works
 *:equal contribution; †: corresponding author
 
+<!-- Resampling Forcing -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv preprint</div><img src='images/papers/resampling-forcing.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**End-to-End Training for Autoregressive Video Diffusion via Self-Resampling**
+
+**Yuwei Guo**,
+[Ceyuan Yang](https://ceyuan.me)<sup>†</sup>,
+[Hao He](https://hehao13.github.io/),
+[Yang Zhao](https://scholar.google.com/citations?user=uPmTOHAAAAAJ),
+[Meng Wei](),
+[Zhenheng Yang](https://zhenheny.github.io/), \\
+[Weilin Huang](https://www.whuang.org/),
+[Dahua Lin](http://dahua.site/)
+
+[**[Paper]**]()&nbsp;
+[**[Project]**](https://guoyww.github.io/projects/resampling-forcing/)&nbsp;
+</div>
+</div>
+<!-- Resampling Forcing -->
 
 <!-- LCT -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/papers/long-context-video.gif' alt="sym" width="100%"></div></div>
