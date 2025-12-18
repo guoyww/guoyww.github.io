@@ -56,7 +56,7 @@ I am always open to research collaboration & internship opportunities. Feel free
 [Weilin Huang](https://www.whuang.org/),
 [Dahua Lin](http://dahua.site/)
 
-[**[Paper]**]()&nbsp;
+[**[Paper]**](https://arxiv.org/pdf/2512.15702)&nbsp;
 [**[Project]**](https://guoyww.github.io/projects/resampling-forcing/)&nbsp;
 </div>
 </div>
