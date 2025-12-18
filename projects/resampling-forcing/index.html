@@ -816,7 +816,7 @@
                 <video width="100%" height="auto" autoplay loop muted playsinline>
                     <source src="assets/teaser-2.mp4" type="video/mp4">
                 </video>
-                <div class="hero-video-caption">(b) Self-Forcing</div>
+                <div class="hero-video-caption">(b) Self Forcing<a href="#ref1" class="cite">1</a></div>
             </div>
             <div class="hero-video-container">
                 <video width="100%" height="auto" autoplay loop muted playsinline>
@@ -826,12 +826,12 @@
             </div>
         </div>
         <div class="hero-main-caption">
-            (a) Teacher forcing training accumulates errors and leads to video collapse. (b) Distilled from a short bidirectional teacher, Self-Forcing<a href="#ref1" class="cite">1</a> suffers from the degraded quality on longer videos. (c) Our method supports native end-to-end training on long videos with stable quality.
+            (a) Teacher forcing training accumulates errors and leads to video collapse. (b) Distilled from a short bidirectional teacher, Self Forcing suffers from the degraded quality on longer videos. (c) Our method supports native end-to-end training on long videos with stable quality.
         </div>
 
         <div class="section-title">Abstract</div>
         <p>
-            Autoregressive video diffusion models hold promise for world simulation but are vulnerable to exposure bias arising from the train-test mismatch. While recent works address this via post- training, they typically rely on a bidirectional teacher model or online discriminator. In pursuit of an end-to-end solution, we introduce Resampling Forcing, a teacher-free paradigm that enables training autoregressive video models from scratch and at scale. Our key idea is a self-resampling scheme that simulates inference-time model-induced errors on history frames during training. Conditioned on these imperfect histories, a sparse causal mask enforces temporal causality and enables parallel training with frame-level diffusion loss. To support efficient long-horizon generation, we further introduce history routing, a parameter-free mechanism that dynamically selects the top-k most important history frames for each query. Experiments demonstrate that our approach matches the performance of distillation-based baselines while delivering superior temporal consistency on longer videos through native-length training.
+            Autoregressive video diffusion models hold promise for world simulation but are vulnerable to exposure bias arising from the train-test mismatch. While recent works address this via post-training, they typically rely on a bidirectional teacher model or online discriminator. To achieve an end-to-end solution, we introduce Resampling Forcing, a teacher-free framework that enables training autoregressive video models from scratch and at scale. Central to our approach is a self-resampling scheme that simulates inference-time model errors on history frames during training. Conditioned on these degraded histories, a sparse causal mask enforces temporal causality while enabling parallel training with frame-level diffusion loss. To facilitate efficient long-horizon generation, we further introduce history routing, a parameter-free mechanism that dynamically retrieves the top-k most relevant history frames for each query. Experiments demonstrate that our approach achieves performance comparable to distillation-based baselines while exhibiting superior temporal consistency on longer videos owing to native-length training.
         </p>
 
         <div class="section-title">Method</div>
@@ -1114,7 +1114,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Self-Forcing<a href="#ref1" class="cite">1</a></td>
+                        <td>Self Forcing<a href="#ref1" class="cite">1</a></td>
                         <td>
                             <video autoplay loop muted playsinline>
                                 <source src="assets/selfforcing-1.mp4" type="video/mp4">
