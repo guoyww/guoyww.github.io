@@ -74,6 +74,10 @@ a:hover {
   text-decoration: none;
 }
 
+a.coauthor {
+  cursor: pointer;
+}
+
 body,
 td,
 th,
